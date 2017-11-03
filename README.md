@@ -2,9 +2,9 @@
 
 Yleisiä linkkejä:
 
-* [Linkki sovellukseeni](https://www.cs.helsinki.fi)
-* [Linkki dokumentaatiooni](https://www.github.com)
+* [Linkki sovellukseeni](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta)
+* [Linkki dokumentaatiooni](https://docs.google.com/document/d/e/2PACX-1vRIAMOKtLvJPCaBZ_0MZdFGC2W3bOECXCLDdi449uBRNvw4ncFMD_5QOrIzRUGPQY-ogcKMrWAfWofW/pub)
 
 ## Työn aihe
 
-Laita tähän aihekuvaus tai [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+[linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
