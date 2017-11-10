@@ -17,6 +17,10 @@ $routes->get('/pokemon/1/muokkaus', function() {
     HelloWorldController::pokemon_show_muokkaus();
 });
 
+$routes->get('/pokemon/haku', function() {
+    HelloWorldController::pokemon_haku();
+});
+
 $routes->get('/login', function() {
     HelloWorldController::login();
 });

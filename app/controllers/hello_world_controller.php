@@ -21,7 +21,11 @@ class HelloWorldController extends BaseController {
     public static function pokemon_show_muokkaus() {
         View::make('suunnitelmat/pokemon_show_muokkaus.html');
     }
-
+    
+    public static function pokemon_haku() {
+        View::make('suunnitelmat/pokemon_haku');
+    }
+    
     public static function login() {
         View::make('suunnitelmat/login.html');
     }
