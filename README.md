@@ -1,4 +1,4 @@
-# Tietokantasovelluksen esittelysivu
+﻿# Tietokantasovelluksen esittelysivu
 
 Yleisiä linkkejä:
 
@@ -8,3 +8,9 @@ Yleisiä linkkejä:
 ## Työn aihe
 
 [linkki valmiiseen aiheeseen](http://advancedkittenry.github.io/suunnittelu_ja_tyoymparisto/aiheet/Pokemon-kanta.html) 
+
+Linkit näkymiini(viikko 2):
+[Linkki Pokémonien listaukseen](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/pokemon#)
+[Linkki tiettyyn Pokémoniin](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/pokemon/1)
+[Linkki tietyn Pokémonin muokkaukseen](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/pokemon/1/muokkaus)
+[Linkki kirjautumiseen](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/login)
