@@ -28,6 +28,8 @@ class PokemonController extends BaseController {
             'seuraavamuoto' => $params['seuraavamuoto']
         ));
 
+        
+        Kint::dump($params);
         // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
         $pokemon->save();
 
