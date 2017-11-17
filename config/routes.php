@@ -10,9 +10,19 @@ $routes->get('/hiekkalaatikko', function() {
 $routes->get('/pokemon', function() {
     PokemonController::index();
 });
+
+$routes->post('/pokemon', function() {
+    PokemonController::store();
+});
+
+$routes->get('/pokemon/new', function() {
+    PokemonController::create();
+});
+
 $routes->get('/pokemon/:id', function($id) {
     PokemonController::show($id);
 });
+
 $routes->get('/pokemon/:id/muokkaus', function() {
     HelloWorldController::pokemon_show_muokkaus();
 });

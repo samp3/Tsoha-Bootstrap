@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <h1>Lisää Pokemon kirjastoon</h1>
+
+  <form method="post" action="{{base_path}}/pokemon">
+    <div class="form-group">
+      <label>Nimi</label>
+      <input type="text" name="name" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Jarjestysnumero</label>
+      <input type="text" name="jarjestysnumero" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Tyyppi</label>
+      <input type="text" name="tyyppi" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <label>Edellinen muoto</label>
+      <textarea name="edellinenmuoto" class="form-control"></textarea>
+    </div>
+      
+      <div class="form-group">
+      <label>Seuraava muoto</label>
+      <textarea name="seuraavamuoto" class="form-control"></textarea>
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Lisää</button>
+    </div>
+  </form>
+{% endblock %}
