@@ -36,5 +36,8 @@ class PokemonController extends BaseController {
         // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
         Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
     }
+    public static function create() {
+        View::make('pokemon/new.html');
+    }
 
 }
