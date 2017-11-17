@@ -10,6 +10,7 @@ CREATE TABLE Pokemon(
 id SERIAL PRIMARY KEY,
 nimi varchar(50) NOT NULL,
 jarjestysnumero INTEGER NOT NULL,
+tyyppi varchar(50) NOT NULL,
 edellinenmuoto varchar(50),
 seuraavamuoto varchar(50),
 kayttaja_id INTEGER REFERENCES Kayttaja(id)

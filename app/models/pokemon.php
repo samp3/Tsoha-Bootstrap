@@ -2,7 +2,7 @@
 
 class Pokemon extends BaseModel {
 
-    public $id, $nimi, $jarjestysnumero, $edellinenmuoto, $seuraavamuoto, $kayttaja_id;
+    public $id, $nimi, $jarjestysnumero, $tyyppi, $edellinenmuoto, $seuraavamuoto, $kayttaja_id;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -24,6 +24,7 @@ class Pokemon extends BaseModel {
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'jarjestysnumero' => $row['jarjestysnumero'],
+                'tyyppi' => $row['tyyppi'],
                 'edellinenmuoto' => $row['edellinenmuoto'],
                 'seuraavamuoto' => $row['seuraavamuoto'],
                 'kayttaja_id' => $row['kayttaja_id']
@@ -42,6 +43,7 @@ class Pokemon extends BaseModel {
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'jarjestysnumero' => $row['jarjestysnumero'],
+                'tyyppi' => $row['tyyppi'],
                 'edellinenmuoto' => $row['edellinenmuoto'],
                 'seuraavamuoto' => $row['seuraavamuoto'],
                 'kayttaja_id' => $row['kayttaja_id']
