@@ -10,7 +10,7 @@ $routes->get('/hiekkalaatikko', function() {
 $routes->get('/pokemon', function() {
     PokemonController::index();
 });
-$routes->get('/pokemon/:id', function() {
+$routes->get('/pokemon/:id', function($id) {
     PokemonController::show($id);
 });
 $routes->get('/pokemon/:id/muokkaus', function() {
