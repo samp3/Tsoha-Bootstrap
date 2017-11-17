@@ -1,6 +1,6 @@
 <?php
 
-require 'app/models/pokemon.php';
+//require 'app/models/pokemon.php';
 
 class HelloWorldController extends BaseController {
 
