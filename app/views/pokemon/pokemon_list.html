@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Käyttäjän x pokemonit</h1>
+
+<p>
+    <a href="{{base_path}}/pokemon/new" class="btn btn-success">Lisää pokemon</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th>Järjestysnumero</th>
+            <th>Typpi</th>
+            <th>Edellinen muoto</th>
+            <th>Seuraava muoto</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for pokemon in pokemons %}
+
+        <tr>
+            <td><a href="{{base_path}}/pokemon/{{pokemon.id}}">{{pokemon.name}}</td>
+            <td>{{pokemon.jarjestysnumero}}</td>
+            <td>{{pokemon.tyyppi}}</td>
+
+            <td>
+                {% if pokemon.edellinenmuoto %}
+            <td>{{pokemon.edellinenmuoto}}</td>
+            {% else %}
+            <td>-</td>
+            {% endif %}
+            </td>
+
+            <td>
+                {% if pokemon.seuraavamuoto %}
+            <td>{{pokemon.seuraavamuoto}}</td>
+            {% else %}
+            <td>-</td>
+            {% endif %}
+            </td>
+
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/pokemon/{{pokemon.id}}/edit">Muokkaa</a></th>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

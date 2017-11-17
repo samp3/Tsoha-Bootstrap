@@ -8,7 +8,7 @@ $routes->get('/hiekkalaatikko', function() {
     HelloWorldController::sandbox();
 });
 $routes->get('/pokemon', function() {
-    HelloWorldController::pokemon_list();
+    PokemonController::index();
 });
 $routes->get('/pokemon/1', function() {
     HelloWorldController::pokemon_show();
