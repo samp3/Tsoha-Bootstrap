@@ -65,7 +65,7 @@ class Pokemon extends BaseModel {
         // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
         Kint::trace();
         Kint::dump($row);
-        $this->id = $row['id'];
+//        $this->id = $row['id'];
     }
 
 }
