@@ -18,7 +18,7 @@ nimi varchar(50) NOT NULL,
 jarjestysnumero INTEGER NOT NULL,
 edellinenMuoto varchar(50),
 seuraavaMuoto varchar(50),
-yllapitaja_id INTEGER REFERENCES Yllapitaja(id)
+kayttaja_id INTEGER REFERENCES Kayttaja(id)
 );
 
 CREATE TABLE KayttajaPokemon(
