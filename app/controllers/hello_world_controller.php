@@ -1,5 +1,7 @@
 <?php
 
+require 'app/models/pokemon.php';
+
 class HelloWorldController extends BaseController {
 
     public static function index() {
@@ -8,6 +10,12 @@ class HelloWorldController extends BaseController {
     }
 
     public static function sandbox() {
+        $pikachu = Pokemon::find(1);
+        $pokemons = Pokemon::all();
+        // Kint-luokan dump-metodi tulostaa muuttujan arvon
+        Kint::dump($pokemons);
+        Kint::dump($pikachu);
+
         View::make('helloworld.html');
     }
 
@@ -18,14 +26,15 @@ class HelloWorldController extends BaseController {
     public static function pokemon_show() {
         View::make('suunnitelmat/pokemon_show.html');
     }
+
     public static function pokemon_show_muokkaus() {
         View::make('suunnitelmat/pokemon_show_muokkaus.html');
     }
-    
+
     public static function pokemon_haku() {
         View::make('suunnitelmat/pokemon_haku.html');
     }
-    
+
     public static function login() {
         View::make('suunnitelmat/login.html');
     }
