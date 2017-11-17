@@ -1,15 +1,14 @@
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
--- CREATE TABLE Yllapitaja(
--- id SERIAL PRIMARY KEY,
--- nimi varchar(50) NOT NULL,
--- salasana varchar(50) NOT NULL
--- );
--- 
+CREATE TABLE Yllapitaja(
+id SERIAL PRIMARY KEY,
+id nimi varchar(50) NOT NULL,
+salasana varchar(50) NOT NULL
+);
+
 CREATE TABLE Kayttaja(
 id SERIAL PRIMARY KEY,
-nimi varchar(50) NOT NULL,
-salasana varchar(50) NOT NULL,
-yllapitaja boolean NOT NULL
+id nimi varchar(50) NOT NULL,
+salasana varchar(50) NOT NULL
 );
 
 CREATE TABLE Pokemon(
@@ -18,7 +17,7 @@ nimi varchar(50) NOT NULL,
 jarjestysnumero INTEGER NOT NULL,
 edellinenMuoto varchar(50),
 seuraavaMuoto varchar(50),
-kayttaja_id INTEGER REFERENCES Kayttaja(id)
+yllapitaja_id INTEGER REFERENCES Yllapitaja(id)
 );
 
 CREATE TABLE KayttajaPokemon(
