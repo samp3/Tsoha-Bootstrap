@@ -9,5 +9,8 @@ class PokemonController extends BaseController {
         View::make('pokemon/pokemon_list.html', array('pokemons' => $pokemons));
     }
 
-    
+    public static function show($id) {
+        $pokemon = Pokemon::find($id);
+        View::make('pokemon/pokemon_show.html', array('pokemon' => $pokemon));
+    }
 }

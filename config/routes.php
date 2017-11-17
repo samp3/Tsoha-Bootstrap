@@ -1,7 +1,7 @@
 <?php
 
 $routes->get('/', function() {
-    HelloWorldController::index();
+    PokemonController::index();
 });
 
 $routes->get('/hiekkalaatikko', function() {
@@ -10,10 +10,10 @@ $routes->get('/hiekkalaatikko', function() {
 $routes->get('/pokemon', function() {
     PokemonController::index();
 });
-$routes->get('/pokemon/1', function() {
-    HelloWorldController::pokemon_show();
+$routes->get('/pokemon/:id', function() {
+    PokemonController::show($id);
 });
-$routes->get('/pokemon/1/muokkaus', function() {
+$routes->get('/pokemon/:id/muokkaus', function() {
     HelloWorldController::pokemon_show_muokkaus();
 });
 

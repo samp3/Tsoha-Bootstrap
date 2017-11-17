@@ -1,23 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>Pikachu</h1>
-  <!-- Painikkeet tähän -->
-  <p>
+<h1>Pikachu</h1>
+<!-- Painikkeet tähän -->
+<p>
     <button class="btn btn-danger">Poista</button> <a href="#" class="btn btn-default">Muokkaa</a>
-  </p>
-  <!-- Tiedot tulee listana tähän -->
-  <ul>
-    <li><strong>Nimi:</strong> Pikachu</li>
-    <li><strong>Järjestysnumero:</strong> 25</li>
-    <li><strong>Edellinen muoto:</strong> Pichu</li>
-    <li><strong>Seuraava muoto:</strong> Raichu</li>
-    <li><strong>Kaappauspäivämäärä:</strong> 10.11.2017</li>
-    <li><strong>CP:</strong> 1000</li>
-    <li><strong>IV:</strong> 100%</li>
-    
-  </ul>
-  <!-- Kuvaus tulee tähän -->
-  <p>
+</p>
+<!-- Tiedot tulee listana tähän -->
+<ul>
+
+    <li><strong>Nimi:</strong> {{pokemon.nimi}}</li>
+    <li><strong>Järjestysnumero:</strong> {{pokemon.jarjestysnumero}}</li>
+    <li><strong>Tyyppi:</strong> {{pokemon.tyyppi}}</li>
+    <li><strong>Edellinen muoto:</strong> {{pokemon.edellinenmuoto}}</li>
+    <li><strong>Seuraava muoto:</strong> {{pokemon.seuraavamuoto}}</li>
+
+</ul>
+<!-- Kuvaus tulee tähän -->
+<p>
     <a href="https://bulbapedia.bulbagarden.net/wiki/Pikachu_(Pok%C3%A9mon)">Linkki pokemonin kuvaukseen</a>
-  </p>
+</p>
 {% endblock %}
