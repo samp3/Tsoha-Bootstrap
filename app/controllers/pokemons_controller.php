@@ -29,12 +29,12 @@ class PokemonController extends BaseController {
         ));
 
         
-        Kint::dump($params);
+        
         // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
         $pokemon->save();
 
         // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
-//        Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
+        Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
     }
 
 }

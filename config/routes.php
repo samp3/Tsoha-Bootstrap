@@ -16,7 +16,7 @@ $routes->post('/pokemon', function() {
 });
 
 $routes->get('/pokemon/new', function() {
-    PokemonController::create();
+    PokemonController::store();
 });
 
 $routes->get('/pokemon/:id', function($id) {

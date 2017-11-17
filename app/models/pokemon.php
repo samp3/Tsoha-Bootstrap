@@ -63,9 +63,7 @@ class Pokemon extends BaseModel {
         // Haetaan kyselyn tuottama rivi, joka sisältää lisätyn rivin id-sarakkeen arvon
         $row = $query->fetch();
         // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
-        Kint::trace();
-        Kint::dump($row);
-//        $this->id = $row['id'];
+        $this->id = $row['id'];
     }
 
 }
