@@ -1,14 +1,15 @@
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
-CREATE TABLE Yllapitaja(
-id SERIAL PRIMARY KEY,
-id nimi varchar(50) NOT NULL,
-salasana varchar(50) NOT NULL
-);
-
+-- CREATE TABLE Yllapitaja(
+-- id SERIAL PRIMARY KEY,
+-- nimi varchar(50) NOT NULL,
+-- salasana varchar(50) NOT NULL
+-- );
+-- 
 CREATE TABLE Kayttaja(
 id SERIAL PRIMARY KEY,
-id nimi varchar(50) NOT NULL,
-salasana varchar(50) NOT NULL
+nimi varchar(50) NOT NULL,
+salasana varchar(50) NOT NULL,
+yllapitaja boolean NOT NULL
 );
 
 CREATE TABLE Pokemon(
