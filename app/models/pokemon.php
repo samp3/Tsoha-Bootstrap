@@ -1,18 +1,8 @@
 <?php
 
-//CREATE TABLE Pokemon(
-//id SERIAL PRIMARY KEY,
-//nimi varchar(50) NOT NULL,
-//jarjestysnumero INTEGER NOT NULL,
-//edellinenMuoto varchar(50),
-//seuraavaMuoto varchar(50),
-//kayttaja_id INTEGER REFERENCES Kayttaja(id)
-//);
-//
-
 class Pokemon extends BaseModel {
 
-    public $id, $nimi, $jarjestysnumero, $edellinenMuoto, $seuraavaMuoto, $kayttaja_id;
+    public $id, $nimi, $jarjestysnumero, $edellinenmuoto, $seuraavamuoto, $kayttaja_id;
 
     public function __construct($attributes) {
         parent::__construct($attributes);
@@ -34,8 +24,8 @@ class Pokemon extends BaseModel {
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'jarjestysnumero' => $row['jarjestysnumero'],
-                'edellinenMuoto' => $row['edellinenMuoto'],
-                'seuraavaMuoto' => $row['seuraavaMuoto'],
+                'edellinenmuoto' => $row['edellinenmuoto'],
+                'seuraavamuoto' => $row['seuraavamuoto'],
                 'kayttaja_id' => $row['kayttaja_id']
             ));
         }
@@ -52,8 +42,8 @@ class Pokemon extends BaseModel {
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'jarjestysnumero' => $row['jarjestysnumero'],
-                'edellinenMuoto' => $row['edellinenMuoto'],
-                'seuraavaMuoto' => $row['seuraavaMuoto'],
+                'edellinenmuoto' => $row['edellinenmuoto'],
+                'seuraavamuoto' => $row['seuraavamuoto'],
                 'kayttaja_id' => $row['kayttaja_id']
             ));
 

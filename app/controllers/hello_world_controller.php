@@ -15,8 +15,6 @@ class HelloWorldController extends BaseController {
         // Kint-luokan dump-metodi tulostaa muuttujan arvon
         Kint::dump($pokemons);
         Kint::dump($pikachu);
-
-        View::make('helloworld.html');
     }
 
     public static function pokemon_list() {
