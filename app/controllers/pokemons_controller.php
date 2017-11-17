@@ -32,7 +32,7 @@ class PokemonController extends BaseController {
         $pokemon->save();
 
         // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
-        Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
+//        Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
     }
 
 }
