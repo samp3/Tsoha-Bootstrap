@@ -14,7 +14,6 @@
             <th>Typpi</th>
             <th>Edellinen muoto</th>
             <th>Seuraava muoto</th>
-            <th></th>
         </tr>
     </thead>
 
@@ -25,23 +24,8 @@
             <td><a href="{{base_path}}/pokemon/{{pokemon.id}}">{{pokemon.name}}</td>
             <td>{{pokemon.jarjestysnumero}}</td>
             <td>{{pokemon.tyyppi}}</td>
-
-            <td>
-                {% if pokemon.edellinenmuoto %}
             <td>{{pokemon.edellinenmuoto}}</td>
-            {% else %}
-            <td>-</td>
-            {% endif %}
-            </td>
-
-            <td>
-                {% if pokemon.seuraavamuoto %}
-            <td>{{pokemon.seuraavamuoto}}</td>
-            {% else %}
-            <td>-</td>
-            {% endif %}
-            </td>
-
+            <td>{{pokemon.seuraavamuoto}}</td>           
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/pokemon/{{pokemon.id}}/edit">Muokkaa</a></th>
         </tr>
 
