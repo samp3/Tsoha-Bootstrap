@@ -5,11 +5,10 @@ class Pokemon extends BaseModel {
     public $id, $nimi, $jarjestysnumero, $tyyppi, $edellinenmuoto, $seuraavamuoto, $kayttaja_id;
 
     public function __construct($attributes) {
-        
+
         parent::__construct($attributes);
 //        $this->validators = array('validate_str_len($this->nimi,3)', 'validate_pokemon_jarjestys($this->jarjestysnumero)','validate_str_len($this->tyyppi, 3)');
-        $this->validators = array('validate_pokemon_jarjestys', 'validate_nimi','validate_tyyppi');
-        
+        $this->validators = array('validate_pokemon_jarjestys', 'validate_nimi', 'validate_tyyppi');
     }
 
     public static function all() {
@@ -69,7 +68,17 @@ class Pokemon extends BaseModel {
         // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
         $this->id = $row['id'];
     }
-    
+
+    public function update() {
+        $query = DB::connection()->prepare('UPDATE Pokemon SET nimi = :nimi, jarjestysnumero = :jarjestysnumero, tyyppi = :tyyppi, edellinenmuoto = :edellinenmuoto, seuraavamuoto = :seuraavamuoto WHERE id = :id');
+        $query->execute(array('id' => $this->id, 'nimi' => $this->nimi, 'jarjestysnumero' => $this->jarjestysnumero, 'tyyppi' => $this->tyyppi, 'edellinenmuoto' => $this->edellinenmuoto, 'seuraavamuoto' => $this->seuraavamuoto));
+    }
+
+    public function delete() {
+        $query = DB::connection()->prepare('DELETE FROM Pokemon WHERE id=:id');
+        $query->execute();
+    }
+
     public function validate_pokemon_jarjestys() {
         $errors = array();
 
@@ -79,7 +88,7 @@ class Pokemon extends BaseModel {
 
         return $errors;
     }
-    
+
     public function validate_nimi() {
         $errors = array();
         if ($this->nimi == '' || $this->nimi == null) {
@@ -91,6 +100,7 @@ class Pokemon extends BaseModel {
 
         return $errors;
     }
+
     public function validate_tyyppi() {
         $errors = array();
         if ($this->tyyppi == '' || $this->tyyppi == null) {

@@ -23,6 +23,18 @@ $routes->get('/pokemon/:id', function($id) {
     PokemonController::show($id);
 });
 
+$routes->get('/pokemon/:id/edit', function($id) {
+    PokemonController::edit($id);
+});
+
+$routes->post('/pokemon/:id/edit', function($id) {
+    PokemonController::update($id);
+});
+
+$routes->post('/pokemon/:id/destroy', function($id) {
+    PokemonController::destroy($id);
+});
+
 $routes->get('/pokemon/:id/muokkaus', function() {
     HelloWorldController::pokemon_show_muokkaus();
 });
