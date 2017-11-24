@@ -22,7 +22,7 @@ class BaseModel {
 
         foreach ($this->validators as $validator) {
             
-            $validatorlista = $this->{$validator};
+            $validatorlista = $this->{$validator}();
             
             $errors = array_merge($errors, $validatorlista);
 // Kutsu validointimetodia tässä ja lisää sen palauttamat virheet errors-taulukkoon
@@ -43,14 +43,5 @@ class BaseModel {
         return $errors;
     }
 
-    public function validate_pokemon_jarjestys($jarjestys) {
-        $errors = array();
-
-        if ($jarjestys > 807 || $jarjestys < 1) {
-            $errors[] = 'Pokemonin jarjestysnumeron tulee olla väliltä [1,807].';
-        }
-
-        return $errors;
-    }
 
 }

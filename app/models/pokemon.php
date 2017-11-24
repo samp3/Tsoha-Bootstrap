@@ -7,7 +7,9 @@ class Pokemon extends BaseModel {
     public function __construct($attributes) {
         
         parent::__construct($attributes);
-        $this->validators = array('validate_str_len($this->nimi,3)', 'validate_pokemon_jarjestys($this->jarjestysnumero)','validate_str_len($this->tyyppi, 3)');
+//        $this->validators = array('validate_str_len($this->nimi,3)', 'validate_pokemon_jarjestys($this->jarjestysnumero)','validate_str_len($this->tyyppi, 3)');
+        $this->validators = array('validate_pokemon_jarjestystysnumero');
+        
     }
 
     public static function all() {
@@ -66,6 +68,16 @@ class Pokemon extends BaseModel {
         $row = $query->fetch();
         // Asetetaan lisätyn rivin id-sarakkeen arvo oliomme id-attribuutin arvoksi
         $this->id = $row['id'];
+    }
+    
+    public function validate_pokemon_jarjestys() {
+        $errors = array();
+
+        if ($this->jarjestys > 807 || $this->jarjestys < 1) {
+            $errors[] = 'Pokemonin jarjestysnumeron tulee olla väliltä [1,807].';
+        }
+
+        return $errors;
     }
 
 }
