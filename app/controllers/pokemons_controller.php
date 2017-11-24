@@ -19,14 +19,14 @@ class PokemonController extends BaseController {
         // POST-pyynnön muuttujat sijaitsevat $_POST nimisessä assosiaatiolistassa
         $params = $_POST;
         // Alustetaan uusi Pokemon-luokan olion käyttäjän syöttämillä arvoilla
-
-        $pokemon = new Pokemon(array(
+        $attributes = array(
             'nimi' => $params['nimi'],
             'jarjestysnumero' => $params['jarjestysnumero'],
             'tyyppi' => $params['tyyppi'],
             'edellinenmuoto' => $params['edellinenmuoto'],
             'seuraavamuoto' => $params['seuraavamuoto']
-        ));
+        );
+        $pokemon = new Pokemon($attributes);
 
         $errors = $pokemon->errors();
         if (count($errors) == 0) {
