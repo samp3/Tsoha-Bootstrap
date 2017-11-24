@@ -75,7 +75,7 @@ class PokemonController extends BaseController {
     
     $pokemon = new Pokemon(array('id' => $id));
     
-    $pokemon->destroy();
+    $pokemon->delete();
 
     
     Redirect::to('/pokemon', array('message' => 'Pokemon on poistettu onnistuneesti!'));
