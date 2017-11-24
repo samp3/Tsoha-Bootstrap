@@ -14,7 +14,7 @@ class Kayttaja extends BaseModel {
         $query->execute(array('nimi' => $nimi, 'salasana' => $salasana));
         $row = $query->fetch();
         if($row) {
-            $kayttaja = new User(array(
+            $kayttaja = new Kayttaja(array(
                 'nimi' => $row['nimi'],
                 'salasana' => $row['salasana']
             ));
