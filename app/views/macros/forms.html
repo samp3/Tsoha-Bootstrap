@@ -1,0 +1,11 @@
+{% macro destroy_button() %}
+  <form method="post" action="{{base_path}}/pokemon/{{pokemon.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+  </form>
+{% endmacro %}
+
+{% macro update_button() %}
+  <form method="post" action="{{base_path}}/pokemon/{{pokemon.id}}/edit" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Update</button>
+  </form>
+{% endmacro %}
