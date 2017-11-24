@@ -28,14 +28,15 @@ class PokemonController extends BaseController {
             'seuraavamuoto' => $params['seuraavamuoto']
         ));
 
-        
-        
-        // Kutsutaan alustamamme olion save metodia, joka tallentaa olion tietokantaan
-        $pokemon->save();
-
-        // Ohjataan käyttäjä lisäyksen jälkeen pelin esittelysivulle
-        Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
+        $errors = $pokemon->errors();
+        if (count($errors) == 0) {
+            $pokemon->save();
+            Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemon on lisätty kirjastoon!'));
+        } else {
+            View::make('pokemon/new.html', array('errors' => $errors, 'attributes' => $attributes));
+        }
     }
+
     public static function create() {
         View::make('pokemon/new.html');
     }

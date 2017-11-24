@@ -5,7 +5,9 @@ class Pokemon extends BaseModel {
     public $id, $nimi, $jarjestysnumero, $tyyppi, $edellinenmuoto, $seuraavamuoto, $kayttaja_id;
 
     public function __construct($attributes) {
+        
         parent::__construct($attributes);
+        $this->validators = array('validate_str_len({$this->nimi},3)', 'validate_pokemon_jarjestys({$this->jarjestysnumero})','validate_str_len({$this->tyyppi},3)', 'validate_str_len({$this->edellinenmuoto},3)', 'validate_str_len({$this->seuraavamuoto},3)');
     }
 
     public static function all() {
