@@ -45,9 +45,9 @@ $routes->get('/pokemon/haku', function() {
 
 $routes->get('/login', function(){
   
-  UserController::login();
+  KayttajaController::login();
 });
 $routes->post('/login', function(){
   
-  UserController::handle_login();
+  KayttajaController::handle_login();
 });
