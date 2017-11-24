@@ -73,7 +73,7 @@ class Pokemon extends BaseModel {
     public function validate_pokemon_jarjestys() {
         $errors = array();
 
-        if ($this->jarjestys > 807 || $this->jarjestys < 1) {
+        if ($this->jarjestysnumero > 807 || $this->jarjestysnumero < 1) {
             $errors[] = 'Pokemonin jarjestysnumeron tulee olla väliltä [1,807].';
         }
 
