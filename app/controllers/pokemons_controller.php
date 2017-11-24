@@ -73,7 +73,7 @@ class PokemonController extends BaseController {
     
     public static function destroy($id){
     
-    $pokemon = new Pokemon(array('id' => $id));
+    $pokemon = Pokemon::find($id);
     
     $pokemon->delete();
 
