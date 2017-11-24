@@ -74,9 +74,9 @@ class Pokemon extends BaseModel {
         $query->execute(array('id' => $this->id, 'nimi' => $this->nimi, 'jarjestysnumero' => $this->jarjestysnumero, 'tyyppi' => $this->tyyppi, 'edellinenmuoto' => $this->edellinenmuoto, 'seuraavamuoto' => $this->seuraavamuoto));
     }
 
-    public function delete() {
+    public function destroy() {
         $query = DB::connection()->prepare('DELETE FROM Pokemon WHERE id = :id');
-        $query->execute(array('id' => $this->id, 'nimi' => $this->nimi, 'jarjestysnumero' => $this->jarjestysnumero, 'tyyppi' => $this->tyyppi, 'edellinenmuoto' => $this->edellinenmuoto, 'seuraavamuoto' => $this->seuraavamuoto));
+        $query->execute(array('id' => $this->id));
     }
 
     public function validate_pokemon_jarjestys() {

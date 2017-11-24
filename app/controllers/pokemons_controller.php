@@ -3,7 +3,7 @@
 class PokemonController extends BaseController {
 
     public static function index() {
-        // Haetaan kaikki pelit tietokannasta
+        // Haetaan kaikki poket tietokannasta
         $pokemons = Pokemon::all();
         // Renderöidään 
         View::make('pokemon/pokemon_list.html', array('pokemons' => $pokemons));
@@ -73,11 +73,12 @@ class PokemonController extends BaseController {
     
     public static function destroy($id){
     
-    $pokemon = Pokemon::find($id);
-    
-    $pokemon->delete();
+    // Alustetaan Game-olio annetulla id:llä
+    $pokemon = new Pokemon(array('id' => $id));
+    // Kutsutaan Game-malliluokan metodia destroy, joka poistaa pelin sen id:llä
+    $pokemon->destroy();
 
-    
+    // Ohjataan käyttäjä pelien listaussivulle ilmoituksen kera
     Redirect::to('/pokemon', array('message' => 'Pokemon on poistettu onnistuneesti!'));
   }
     
