@@ -16,3 +16,10 @@
 * [Linkki tietyn Pokémonin muokkaukseen](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/pokemon/1/muokkaus)
 * [Linkki kirjautumiseen](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/login)
 * [Linkki pokemonien hakuun](http://spmahlqv.users.cs.helsinki.fi/pokemon-tietokanta/pokemon/haku)
+
+
+## Käyttäjätunnus ja salasana(viikko 4):
+
+* Käyttäjätunnus: ylla
+* Salasana: pitaja
+
