@@ -40,5 +40,7 @@ class PokemonController extends BaseController {
     public static function create() {
         View::make('pokemon/new.html');
     }
+    
+    
 
 }

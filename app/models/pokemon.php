@@ -8,7 +8,7 @@ class Pokemon extends BaseModel {
         
         parent::__construct($attributes);
 //        $this->validators = array('validate_str_len($this->nimi,3)', 'validate_pokemon_jarjestys($this->jarjestysnumero)','validate_str_len($this->tyyppi, 3)');
-        $this->validators = array('validate_pokemon_jarjestys');
+        $this->validators = array('validate_pokemon_jarjestys', 'validate_nimi','validate_tyyppi');
         
     }
 
@@ -75,6 +75,29 @@ class Pokemon extends BaseModel {
 
         if ($this->jarjestysnumero > 807 || $this->jarjestysnumero < 1) {
             $errors[] = 'Pokemonin jarjestysnumeron tulee olla väliltä [1,807].';
+        }
+
+        return $errors;
+    }
+    
+    public function validate_nimi() {
+        $errors = array();
+        if ($this->nimi == '' || $this->nimi == null) {
+            $errors[] = 'nimi ei saa olla tyhjä!';
+        }
+        if (strlen($this->nimi) < 3) {
+            $errors[] = 'nimen pituuden tulee olla vähintään 3 merkkiä!';
+        }
+
+        return $errors;
+    }
+    public function validate_tyyppi() {
+        $errors = array();
+        if ($this->tyyppi == '' || $this->tyyppi == null) {
+            $errors[] = 'tyyppi ei saa olla tyhjä!';
+        }
+        if (strlen($this->nimi) < 3) {
+            $errors[] = 'tyypin pituuden tulee olla vähintään 3 merkkiä!';
         }
 
         return $errors;
