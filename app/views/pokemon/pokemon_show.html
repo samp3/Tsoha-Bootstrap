@@ -4,8 +4,10 @@
 <h1>{{pokemon.nimi}}</h1>
 <!-- Painikkeet tähän -->
 <p>
-    {{forms.destroy_button()}}
-    <a href="{{base_path}}/pokemon/{{pokemon.id}}/edit" class="btn btn-default">Muokkaa</a>
+<form method="post" action="{{base_path}}/pokemon/{{pokemon.id}}/destroy" style="display: inline-block;">
+    <button type="submit" class="btn btn-danger">Poista</button>
+</form>
+<a href="{{base_path}}/pokemon/{{pokemon.id}}/edit" class="btn btn-default">Muokkaa</a>
 </p>
 <!-- Tiedot tulee listana tähän -->
 <ul>
