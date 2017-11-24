@@ -50,7 +50,10 @@
 
         <div id="main-container">
             <!-- Dynaaminen sisältö tulee tähän -->
-            {% block content %}{% endblock %}
+            {% block content %}
+            <p>{{message}}</p>
+            
+            {% endblock %}
         </div>
 
         {% block body %}
