@@ -8,7 +8,7 @@ class Pokemon extends BaseModel {
         
         parent::__construct($attributes);
 //        $this->validators = array('validate_str_len($this->nimi,3)', 'validate_pokemon_jarjestys($this->jarjestysnumero)','validate_str_len($this->tyyppi, 3)');
-        $this->validators = array('validate_pokemon_jarjestystysnumero');
+        $this->validators = array('validate_pokemon_jarjestys');
         
     }
 
