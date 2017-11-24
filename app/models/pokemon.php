@@ -71,7 +71,7 @@ class Pokemon extends BaseModel {
 
     public function update() {
         $query = DB::connection()->prepare('UPDATE Pokemon SET nimi = :nimi, jarjestysnumero = :jarjestysnumero, tyyppi = :tyyppi, edellinenmuoto = :edellinenmuoto, seuraavamuoto = :seuraavamuoto WHERE id = :id');
-        $query->execute(array('id' => $this->id, 'nimi' => $this->nimi, 'jarjestysnumero' => $this->jarjestysnumero, 'tyyppi' => $this->tyyppi, 'edellinenmuoto' => $this->edellinenmuoto, 'seuraavamuoto' => $this->seuraavamuoto));
+        $query->execute(array('nimi' => $this->nimi, 'jarjestysnumero' => $this->jarjestysnumero, 'tyyppi' => $this->tyyppi, 'edellinenmuoto' => $this->edellinenmuoto, 'seuraavamuoto' => $this->seuraavamuoto,'id' => $this->id));
     }
 
     public function destroy() {

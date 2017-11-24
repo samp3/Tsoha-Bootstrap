@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% import "macros/forms.html" as forms %}
 {% block content %}
-<h1>Muokkaa pokemonia</h1>
+<h1>Muokkaa Pokemonia</h1>
 
 {% if errors %}
 <div class="alert alert-danger">
@@ -17,11 +17,13 @@
     <div class="form-group">
         <label>Nimi</label>
         <input type="text" name="nimi" class="form-control">
+        {{pokemon.nimi}}
     </div>
 
     <div class="form-group">
         <label>Jarjestysnumero</label>
         <input type="text" name="jarjestysnumero" class="form-control">
+        {{pokemon.jarjestysnumero}}
     </div>
 
     <div class="form-group">
@@ -31,12 +33,12 @@
 
     <div class="form-group">
         <label>Edellinen muoto</label>
-        <textarea name="edellinenmuoto" class="form-control"></textarea>
+        <input type="text" name="edellinenmuoto" class="form-control">
     </div>
 
     <div class="form-group">
         <label>Seuraava muoto</label>
-        <textarea name="seuraavamuoto" class="form-control"></textarea>
+        <input type="text" name="seuraavamuoto" class="form-control">
     </div>
 
     <div class="form-group">

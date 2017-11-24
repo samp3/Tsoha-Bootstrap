@@ -64,6 +64,7 @@ class PokemonController extends BaseController {
             View::make('pokemon/edit.html', array('errors' => $errors, 'attributes' => $attributes));
             
         } else {
+            
             $pokemon->update();
             Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemonia on muokattu onnistuneesti!'));
         }
@@ -73,12 +74,12 @@ class PokemonController extends BaseController {
     
     public static function destroy($id){
     
-    // Alustetaan Game-olio annetulla id:llä
+    
     $pokemon = new Pokemon(array('id' => $id));
-    // Kutsutaan Game-malliluokan metodia destroy, joka poistaa pelin sen id:llä
+    
     $pokemon->destroy();
 
-    // Ohjataan käyttäjä pelien listaussivulle ilmoituksen kera
+    
     Redirect::to('/pokemon', array('message' => 'Pokemon on poistettu onnistuneesti!'));
   }
     
