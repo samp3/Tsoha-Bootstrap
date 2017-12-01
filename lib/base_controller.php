@@ -17,10 +17,9 @@
 
     public static function check_logged_in(){
         
-        if(isset($_SESSION['kayttaja'])) {
-            return true;
+        if(!isset($_SESSION['kayttaja'])) {
+            Redirect::to('/login', array('message' => 'Kirjaudu ensin sisään!'));
         }
-        return false;
       // Toteuta kirjautumisen tarkistus tähän.
       // Jos käyttäjä ei ole kirjautunut sisään, ohjaa hänet toiselle sivulle (esim. kirjautumissivulle).
     }
