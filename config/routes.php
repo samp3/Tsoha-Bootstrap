@@ -53,5 +53,5 @@ $routes->post('/login', function(){
 });
 
 $routes->post('/logout', function() {
-   UserController::logout(); 
+   KayttajaController::logout(); 
 });
