@@ -3,8 +3,8 @@
 class PokemonController extends BaseController {
 
     public static function index() {
-        // Haetaan kaikki poket tietokannasta
-
+            // Haetaan kaikki poket tietokannasta
+        
         $user_logged_in = self::get_user_logged_in();
         $pokemons = Pokemon::all(array('kayttaja_id' => $user_logged_in));
 
