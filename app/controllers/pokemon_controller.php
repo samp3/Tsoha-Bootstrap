@@ -5,16 +5,16 @@ class PokemonController extends BaseController {
     public static function index() {
         // Haetaan kaikki poket tietokannasta
         
-        $kayttaja_logged_in = self::get_user_logged_in();
-        $pokemons = Pokemon::all(array('kayttaja_id' => $kayttaja_logged_in));
+        $user_logged_in = self::get_user_logged_in();
+        $pokemons = Pokemon::all(array('kayttaja_id' => $user_logged_in));
         
         // Renderöidään 
         View::make('pokemon/pokemon_list.html', array('pokemons' => $pokemons));
     }
 
     public static function show($id) {
-        self::check_logged_in_yllapitaja();
         
+        $user_logged_in = self::get_user_logged_in();
         $pokemon = Pokemon::find($id);
         
         
