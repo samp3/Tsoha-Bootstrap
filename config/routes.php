@@ -4,9 +4,22 @@ $routes->get('/', function() {
     PokemonController::index();
 });
 
-$routes->get('/hiekkalaatikko', function() {
-    HelloWorldController::sandbox();
+$routes->get('/login', function(){
+  
+  KayttajaController::login();
 });
+$routes->post('/login', function(){
+  
+  KayttajaController::handle_login();
+});
+
+$routes->post('/logout', function() {
+   UserController::logout(); 
+});
+//
+//$routes->get('/hiekkalaatikko', function() {
+//    HelloWorldController::sandbox();
+//});
 $routes->get('/pokemon', function() {
     PokemonController::index();
 });
@@ -43,15 +56,7 @@ $routes->get('/pokemon/haku', function() {
     HelloWorldController::pokemon_haku();
 });
 
-$routes->get('/login', function(){
-  
-  KayttajaController::login();
-});
-$routes->post('/login', function(){
-  
-  KayttajaController::handle_login();
-});
 
-$routes->post('/logout', function() {
-   KayttajaController::logout(); 
+$routes->get('/kayttajapokemon', function() {
+    KayttajaPokemonController::index();
 });

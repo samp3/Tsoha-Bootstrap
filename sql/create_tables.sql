@@ -20,7 +20,7 @@ CREATE TABLE KayttajaPokemon(
 id SERIAL PRIMARY KEY,
 kayttaja_id INTEGER REFERENCES Kayttaja(id),
 pokemon_id INTEGER REFERENCES Pokemon(id),
-kaappausPvm DATE NOT NULL,
+kaappauspvm DATE NOT NULL,
 cp INTEGER NOT NULL,
 iv INTEGER NOT NULL
 );

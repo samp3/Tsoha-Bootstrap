@@ -4,28 +4,28 @@ class PokemonController extends BaseController {
 
     public static function index() {
         // Haetaan kaikki poket tietokannasta
-        
+
         $user_logged_in = self::get_user_logged_in();
         $pokemons = Pokemon::all(array('kayttaja_id' => $user_logged_in));
-        
+
         // Renderöidään 
         View::make('pokemon/pokemon_list.html', array('pokemons' => $pokemons));
     }
 
     public static function show($id) {
-        
+
         $user_logged_in = self::get_user_logged_in();
         $pokemon = Pokemon::find($id);
-        
-        
+
+
         View::make('pokemon/pokemon_show.html', array('pokemon' => $pokemon));
     }
 
     public static function store() {
         self::check_logged_in_yllapitaja();
         $user_logged_in = self::get_user_logged_in();
-        
-        
+
+
         $params = $_POST;
 
         $attributes = array(
@@ -54,15 +54,15 @@ class PokemonController extends BaseController {
 
     public static function edit($id) {
         self::check_logged_in_yllapitaja();
-        
+
         $pokemon = Pokemon::find($id);
         View::make('pokemon/edit.html', array('pokemon' => $pokemon));
     }
 
     public static function update($id) {
         self::check_logged_in_yllapitaja();
-        
-        
+
+
         $params = $_POST;
 
         $attributes = array(

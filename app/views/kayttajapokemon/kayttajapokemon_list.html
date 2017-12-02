@@ -1,6 +1,46 @@
 {% extends "base.html" %}
 {% block content %}
+<h1>Kaikki Pokémonisi</h1>
 
+<p>
+    <p style="color:blue;font-size:36px;">{{message}}</p>
+</p>
 
+<p>
+    <a href="{{base_path}}/kayttajapokemon/new" class="btn btn-success">Lisää itsellesi Pokémon</a>
+    
+</p>
 
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nimi</th>
+            <th>Järjestysnumero</th>
+            <th>Tyyppi</th>
+            <th>Edellinen muoto</th>
+            <th>Seuraava muoto</th>
+            <th>Kaappauspäivämäärä</th>
+            <th>CP</th>
+            <th>IV</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for kayttajapokemon in kayttajapokemons %}
+
+        <tr>
+            <td><a href="{{base_path}}/pokemon/{{pokemon.id}}">{{kayttajapokemon.nimi}}</td>
+            <td>{{kayttajapokemon.jarjestysnumero}}</td>
+            <td>{{kayttajapokemon.tyyppi}}</td>
+            <td>{{kayttajapokemon.edellinenmuoto}}</td>
+            <td>{{kayttajapokemon.seuraavamuoto}}</td>
+            <td>{{kayttajapokemon.kaappauspvm}}</td>
+            <td>{{kayttajapokemon.cp}}</td>
+            <td>{{kayttajapokemon.iv}}</td> 
+            <th><a class="btn btn-default btn-sm" href="{{base_path}}/kayttajapokemon/{{kayttajapokemon.id}}/edit">Muokkaa</a></th>
+        </tr>
+
+        {% endfor %}
+    </tbody>
+</table>
 {% endblock %}
