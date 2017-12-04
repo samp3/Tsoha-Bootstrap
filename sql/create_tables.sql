@@ -12,14 +12,15 @@ jarjestysnumero INTEGER NOT NULL,
 tyyppi varchar(50) NOT NULL,
 edellinenmuoto varchar(50),
 seuraavamuoto varchar(50),
-kayttaja_nimi INTEGER REFERENCES Kayttaja(nimi)
+kayttaja_id varchar(50) REFERENCES Kayttaja(nimi)
 );
 
 CREATE TABLE KayttajaPokemon(
 id SERIAL PRIMARY KEY,
-kayttaja_nimi varchar(50) REFERENCES Kayttaja(nimi),
 pokemon_id INTEGER REFERENCES Pokemon(id),
 kaappauspvm DATE NOT NULL,
 cp INTEGER NOT NULL,
-iv INTEGER NOT NULL
+iv INTEGER NOT NULL,
+kayttaja_id varchar(50) REFERENCES Kayttaja(nimi),
+pokemon_id INTEGER REFERENCES Pokemon(id)
 );
