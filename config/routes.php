@@ -4,6 +4,7 @@ $routes->get('/', function() {
     PokemonController::index();
 });
 
+//kirjautumis reitit
 $routes->get('/login', function() {
 
     UserController::login();
@@ -16,10 +17,8 @@ $routes->post('/login', function() {
 $routes->post('/logout', function() {
     UserController::logout();
 });
-//
-//$routes->get('/hiekkalaatikko', function() {
-//    HelloWorldController::sandbox();
-//});
+
+//pokemon reitit
 $routes->get('/pokemon', function() {
     PokemonController::index();
 });
@@ -48,15 +47,11 @@ $routes->post('/pokemon/:id/destroy', function($id) {
     PokemonController::destroy($id);
 });
 
-//$routes->get('/pokemon/:id/muokkaus', function() {
-//    HelloWorldController::pokemon_show_muokkaus();
-//});
-
 $routes->get('/pokemon/haku', function() {
     HelloWorldController::pokemon_haku();
 });
 
-
+//userpokemon reitit
 $routes->get('/userpokemon', function() {
     UserPokemonController::index();
 });
