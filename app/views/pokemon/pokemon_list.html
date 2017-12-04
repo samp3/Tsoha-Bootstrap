@@ -3,16 +3,16 @@
 <h1>Kaikki tietokannan Pokémonit</h1>
 
 <p>
-    <p style="color:yellowgreen;font-size:20px;">Nämä ovat Pokémonlajit, joista pystyt lisäämään itsellesi yksilöitä. Kirjaudu sisään alottaaksesi. Klikkaamalla "Omat Pokémonit" pääset selaamaan omia yksilöitä ja lisäilemään, muokkailemaan ja poistamaan niitä.</p>
+<p style="color:yellowgreen;font-size:20px;">Nämä ovat Pokémonlajit, joista pystyt lisäämään itsellesi yksilöitä. Kirjaudu sisään alottaaksesi. Klikkaamalla "Omat Pokémonit" pääset selaamaan omia yksilöitä ja lisäilemään, muokkailemaan ja poistamaan niitä.</p>
 </p>
 
 <p>
-    <p style="color:blue;font-size:36px;">{{message}}</p>
+<p style="color:blue;font-size:36px;">{{message}}</p>
 </p>
 
 <p>
     <a href="{{base_path}}/pokemon/new" class="btn btn-success">Lisää pokemon</a>
-    
+
 </p>
 
 <table class="table table-striped table-bordered">
@@ -34,7 +34,10 @@
             <td>{{pokemon.jarjestysnumero}}</td>
             <td>{{pokemon.tyyppi}}</td>
             <td>{{pokemon.edellinenmuoto}}</td>
-            <td>{{pokemon.seuraavamuoto}}</td>           
+            <td>{{pokemon.seuraavamuoto}}</td>  
+            <th><form method="post" action="{{base_path}}/pokemon/{{pokemon.id}}/destroy" style="display: inline-block;">
+                    <button type="submit" class="btn btn-danger">Poista</button>
+                </form></th>
             <th><a class="btn btn-default btn-sm" href="{{base_path}}/pokemon/{{pokemon.id}}/edit">Muokkaa</a></th>
         </tr>
 
