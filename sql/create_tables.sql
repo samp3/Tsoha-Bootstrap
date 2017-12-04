@@ -1,9 +1,8 @@
 -- Lisää CREATE TABLE lauseet tähän tiedostoon
 CREATE TABLE Kayttaja(
-id SERIAL PRIMARY KEY,
-nimi varchar(50) NOT NULL,
+nimi varchar(50) PRIMARY KEY NOT NULL,
 salasana varchar(50) NOT NULL,
-yllapitaja boolean NOT NULL
+yllapitaja boolean
 );
 
 CREATE TABLE Pokemon(
@@ -18,7 +17,7 @@ kayttaja_id INTEGER REFERENCES Kayttaja(id)
 
 CREATE TABLE KayttajaPokemon(
 id SERIAL PRIMARY KEY,
-kayttaja_id INTEGER REFERENCES Kayttaja(id),
+kayttaja_id varchar(50) REFERENCES Kayttaja(nimi),
 pokemon_id INTEGER REFERENCES Pokemon(id),
 kaappauspvm DATE NOT NULL,
 cp INTEGER NOT NULL,
