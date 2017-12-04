@@ -32,8 +32,8 @@ class BaseController {
         if (isset($_SESSION['user'])) {
             $user_id = $_SESSION['user'];
 
-            $kayttaja = Kayttaja::find($user_id);
-            if (!$kayttaja->yllapitaja) {
+            $user = User::find($user_id);
+            if (!$user->yllapitaja) {
                 Redirect::to('/login', array('message' => 'Sinulla ei ole ylläpitäjän oikeuksia!'));
             }
         }
