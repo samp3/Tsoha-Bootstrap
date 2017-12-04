@@ -5,19 +5,19 @@ class BaseController {
     public static function get_user_logged_in() {
         // Toteuta kirjautuneen käyttäjän haku tähän
 
-        if (isset($_SESSION['kayttaja'])) {
-            $kayttaja_id = $_SESSION['kayttaja'];
+        if (isset($_SESSION['user'])) {
+            $user_id = $_SESSION['user'];
 
-            $kayttaja = Kayttaja::find($kayttaja_id);
+            $user = Kayttaja::find($user_id);
 
-            return $kayttaja;
+            return $user;
         }
         return null;
     }
 
     public static function check_logged_in() {
 
-        if (!isset($_SESSION['kayttaja'])) {
+        if (!isset($_SESSION['user'])) {
             Redirect::to('/login', array('message' => 'Kirjaudu ensin sisään!'));
         }
         // Toteuta kirjautumisen tarkistus tähän.

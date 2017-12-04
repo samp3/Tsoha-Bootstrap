@@ -1,6 +1,6 @@
 <?php
 
-class Kayttaja extends BaseModel {
+class User extends BaseModel {
 
     public $id, $nimi, $salasana, $yllapitaja;
 
@@ -14,12 +14,12 @@ class Kayttaja extends BaseModel {
         $query->execute(array('nimi' => $nimi, 'salasana' => $salasana));
         $row = $query->fetch();
         if($row) {
-            $kayttaja = new Kayttaja(array(
+            $user = new User(array(
                 'nimi' => $row['nimi'],
                 'salasana' => $row['salasana']
             ));
 
-            return $kayttaja;
+            return $user;
         }
         
         else {
@@ -34,12 +34,12 @@ class Kayttaja extends BaseModel {
         $row = $query->fetch();
         
         if($row) {
-            $kayttaja = new Kayttaja(array(
+            $user = new User(array(
                 'id' => $row['id'],
                 'nimi' => $row['nimi'],
                 'salasana' => $row['salasana']
             ));
-            return $kayttaja;
+            return $user;
         }
         else {
             return null;

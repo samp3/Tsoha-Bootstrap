@@ -4,17 +4,17 @@ $routes->get('/', function() {
     PokemonController::index();
 });
 
-$routes->get('/login', function(){
-  
-  KayttajaController::login();
+$routes->get('/login', function() {
+
+    UserController::login();
 });
-$routes->post('/login', function(){
-  
-  KayttajaController::handle_login();
+$routes->post('/login', function() {
+
+    UserController::handle_login();
 });
 
 $routes->post('/logout', function() {
-   UserController::logout(); 
+    UserController::logout();
 });
 //
 //$routes->get('/hiekkalaatikko', function() {
@@ -24,12 +24,12 @@ $routes->get('/pokemon', function() {
     PokemonController::index();
 });
 
-$routes->post('/pokemon', function(){
-  PokemonController::store();
+$routes->post('/pokemon', function() {
+    PokemonController::store();
 });
 
-$routes->get('/pokemon/new', function(){
-  PokemonController::create();
+$routes->get('/pokemon/new', function() {
+    PokemonController::create();
 });
 
 $routes->get('/pokemon/:id', function($id) {
@@ -57,6 +57,6 @@ $routes->get('/pokemon/haku', function() {
 });
 
 
-$routes->get('/kayttajapokemon', function() {
-    KayttajaPokemonController::index();
+$routes->get('/userpokemon', function() {
+    UserPokemonController::index();
 });

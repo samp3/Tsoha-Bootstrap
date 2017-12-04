@@ -1,6 +1,6 @@
 <?php
 
-class KayttajaPokemon extends BaseModel {
+class UserPokemon extends BaseModel {
     //tänne lisää tarvittavat pokemonista, että saadaan viewiin oikeet
     public $id, $kayttaja_id, $pokemon_id, $kaappauspvm, $cp, $iv;
 
