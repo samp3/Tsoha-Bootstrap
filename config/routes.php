@@ -6,7 +6,7 @@ $routes->get('/', function() {
 
 
 //pokemon reitit
-$routes->get('/pokemon', function() {
+$routes->get('/pokemon', 'check_logged_in',function() {
     PokemonController::index();
 });
 
