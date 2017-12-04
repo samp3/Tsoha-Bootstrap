@@ -41,9 +41,9 @@ class User extends BaseModel {
             ));
             return $user;
         }
-        else {
+        
             return null;
-        }
+        
     }
     
     

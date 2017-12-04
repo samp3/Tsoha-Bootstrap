@@ -4,19 +4,6 @@ $routes->get('/', function() {
     PokemonController::index();
 });
 
-//kirjautumis reitit
-$routes->get('/login', function() {
-
-    UserController::login();
-});
-$routes->post('/login', function() {
-
-    UserController::handle_login();
-});
-
-$routes->post('/logout', function() {
-    UserController::logout();
-});
 
 //pokemon reitit
 $routes->get('/pokemon', function() {
@@ -54,4 +41,18 @@ $routes->get('/pokemon/haku', function() {
 //userpokemon reitit
 $routes->get('/userpokemon', function() {
     UserPokemonController::index();
+});
+
+//kirjautumis reitit
+$routes->get('/login', function() {
+
+    UserController::login();
+});
+$routes->post('/login', function() {
+
+    UserController::handle_login();
+});
+
+$routes->post('/logout', function() {
+    UserController::logout();
 });
