@@ -4,6 +4,10 @@ function check_logged_in() {
     BaseController::check_logged_in();
 }
 
+function check_logged_in_yllapitaja() {
+    BaseController::check_logged_in_yllapitaja();
+}
+
 $routes->get('/', function() {
     PokemonController::index();
 });
@@ -14,11 +18,11 @@ $routes->get('/pokemon', function() {
     PokemonController::index();
 });
 
-$routes->post('/pokemon', 'check_logged_in', function() {
+$routes->post('/pokemon', 'check_logged_in_yllapitaja', function() {
     PokemonController::store();
 });
 
-$routes->get('/pokemon/new', function() {
+$routes->get('/pokemon/new', 'check_logged_in_yllapitaja', function() {
     PokemonController::create();
 });
 
