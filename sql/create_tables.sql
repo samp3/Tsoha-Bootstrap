@@ -12,7 +12,7 @@ jarjestysnumero INTEGER NOT NULL,
 tyyppi varchar(50) NOT NULL,
 edellinenmuoto varchar(50),
 seuraavamuoto varchar(50),
-kayttaja_id INTEGER REFERENCES Kayttaja(nimi)
+kayttaja_nimi INTEGER REFERENCES Kayttaja(nimi)
 );
 
 CREATE TABLE KayttajaPokemon(
