@@ -5,15 +5,15 @@ class PokemonController extends BaseController {
     public static function index() {
             // Haetaan kaikki poket tietokannasta
         self::check_logged_in();
-        $user_logged_in = self::get_user_logged_in();
-        $pokemons = Pokemon::all(array('kayttaja_id' => $user_logged_in));
+        
+        $pokemons = Pokemon::all();
 
         // Renderöidään 
         View::make('pokemon/pokemon_list.html', array('pokemons' => $pokemons));
     }
 
     public static function show($id) {
-        self::check_logged_in_yllapitaja();
+        self::check_logged_in();
         $pokemon = Pokemon::find($id);
 
 
@@ -21,8 +21,8 @@ class PokemonController extends BaseController {
     }
 
     public static function store() {
-        self::check_logged_in_yllapitaja();
-        $user_logged_in = self::get_user_logged_in();
+        self::check_logged_in();
+        
 
 
         $params = $_POST;
@@ -33,7 +33,7 @@ class PokemonController extends BaseController {
             'tyyppi' => $params['tyyppi'],
             'edellinenmuoto' => $params['edellinenmuoto'],
             'seuraavamuoto' => $params['seuraavamuoto'],
-            'kayttaja_id' => $user_logged_in->id
+            
         );
         $pokemon = new Pokemon($attributes);
 
@@ -47,19 +47,19 @@ class PokemonController extends BaseController {
     }
 
     public static function create() {
-        self::check_logged_in_yllapitaja();
+        self::check_logged_in();
         View::make('pokemon/new.html');
     }
 
     public static function edit($id) {
-        self::check_logged_in_yllapitaja();
+        self::check_logged_in();
 
         $pokemon = Pokemon::find($id);
         View::make('pokemon/edit.html', array('pokemon' => $pokemon));
     }
 
     public static function update($id) {
-        self::check_logged_in_yllapitaja();
+        self::check_logged_in();
 
 
         $params = $_POST;
@@ -80,19 +80,19 @@ class PokemonController extends BaseController {
         } else {
 
             $pokemon->update();
-            Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokemonia on muokattu onnistuneesti!'));
+            Redirect::to('/pokemon/' . $pokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
         }
     }
 
     public static function destroy($id) {
-        self::check_logged_in_yllapitaja();
+        self::check_logged_in();
 
         $pokemon = new Pokemon(array('id' => $id));
 
         $pokemon->destroy();
 
 
-        Redirect::to('/pokemon', array('message' => 'Pokemon on poistettu onnistuneesti!'));
+        Redirect::to('/pokemon', array('message' => 'Pokémon on poistettu onnistuneesti!'));
     }
 
 }
