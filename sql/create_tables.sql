@@ -17,9 +17,10 @@ kayttaja_id varchar(50) REFERENCES Kayttaja(nimi)
 
 CREATE TABLE KayttajaPokemon(
 id SERIAL PRIMARY KEY,
+kayttaja_id varchar(50) REFERENCES Kayttaja(nimi),
+pokemon_id INTEGER REFERENCES Pokemon(id),
 kaappauspvm DATE NOT NULL,
 cp INTEGER NOT NULL,
-iv INTEGER NOT NULL,
-kayttaja_id varchar(50) REFERENCES Kayttaja(nimi),
-pokemon_id INTEGER REFERENCES Pokemon(id)
+iv INTEGER NOT NULL
+
 );
