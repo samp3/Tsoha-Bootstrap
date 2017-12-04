@@ -26,7 +26,7 @@ class BaseController {
 
     public static function check_logged_in_yllapitaja() {
         if (!isset($_SESSION['user'])) {
-            Redirect::to('/login', array('message' => 'Kirjaudu ensin sisään ylläpitäjänä!'));
+            Redirect::to('/login', array('message' => 'Sinun täytyy olla kirjautuneena ylläpitäjänä, jos haluat lisätä Pokémoneja(lajeja) tietokantaan!'));
         }
 
         if (isset($_SESSION['user'])) {
