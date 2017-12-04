@@ -1,16 +1,20 @@
 <?php
 
+function check_logged_in() {
+    BaseController::check_logged_in();
+}
+
 $routes->get('/', function() {
     PokemonController::index();
 });
 
 
 //pokemon reitit
-$routes->get('/pokemon', 'check_logged_in',function() {
+$routes->get('/pokemon', function() {
     PokemonController::index();
 });
 
-$routes->post('/pokemon', function() {
+$routes->post('/pokemon', 'check_logged_in', function() {
     PokemonController::store();
 });
 
