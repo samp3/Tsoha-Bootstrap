@@ -44,6 +44,7 @@ class UserPokemonController extends BaseController {
         self::check_logged_in();
         
         $userpokemon = UserPokemon::find($id);
+        Kint::dump($userpokemon);
         View::make('userpokemon/userpokemon_show.html', array('userpokemon' => $userpokemon));
     }
 
