@@ -39,7 +39,9 @@
                 <div class="collapse navbar-collapse" id="navigation">
                     <ul class="nav navbar-nav">
                         <!-- Navigaation linkit -->
+                        {% if user_logged_in %}
                         <li><a href="{{base_path}}/userpokemon/{{user_logged_in.nimi}}">Omat Pokémonit</a></li>
+                        {% endif %}
                     </ul>
 
                     {% if user_logged_in %}
