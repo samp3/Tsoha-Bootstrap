@@ -50,6 +50,10 @@ $routes->get('/pokemon/haku', function() {
 $routes->get('/userpokemon/:kayttaja_nimi', function($kayttaja_nimi) {
     UserPokemonController::showByUser($kayttaja_nimi);
 });
+$routes->get('/userpokemon/new', 'check_logged_in', function() {
+    UserPokemonController::create();
+});
+
 
 //kirjautumis reitit
 $routes->get('/login', function() {
