@@ -65,6 +65,7 @@ class UserPokemon extends BaseModel {
 
             return $pokemon;
         }
+        return null;
     }
 
 }

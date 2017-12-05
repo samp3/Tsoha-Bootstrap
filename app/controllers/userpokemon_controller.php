@@ -40,8 +40,9 @@ class UserPokemonController extends BaseController {
     }
 
     public static function show($id) {
-        $user = self::get_user_logged_in();
-        $nimi = $user->nimi;
+       
+        self::check_logged_in();
+        
         $userpokemon = UserPokemon::find($id);
         View::make('userpokemon/userpokemon_show.html', array('userpokemon' => $userpokemon));
     }
