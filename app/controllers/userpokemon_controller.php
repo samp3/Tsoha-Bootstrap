@@ -4,9 +4,9 @@ class UserPokemonController extends BaseController {
 
     public static function showByUser($kayttaja_nimi) {
         self::check_logged_in();
-        $pokemons = UserPokemon::findByUser($kayttaja_nimi);
+        $userpokemons = UserPokemon::findByUser($kayttaja_nimi);
 
-        View::make('userpokemon/userpokemon_list.html', array('pokemons' => $pokemons));
+        View::make('userpokemon/userpokemon_list.html', array('userpokemons' => $userpokemons));
     }
 
     public static function create($user_nimi) {
