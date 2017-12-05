@@ -47,8 +47,8 @@ $routes->get('/pokemon/haku', function() {
 });
 
 //userpokemon reitit
-$routes->get('/userpokemon', function() {
-    UserPokemonController::index();
+$routes->get('/userpokemon/:kayttaja_nimi', check_logged_in, function($kayttaja_nimi) {
+    UserPokemonController::showByUser($kayttaja_nimi);
 });
 
 //kirjautumis reitit

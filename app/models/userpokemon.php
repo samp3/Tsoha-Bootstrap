@@ -9,7 +9,7 @@ class UserPokemon extends BaseModel {
         parent::__construct($attributes);
     }
 
-    public static function all($kayttaja_id) {
+    public static function findByUser($kayttaja_id) {
         //sql haku, muuta toimivaksi
         //SELECT Pokemon.nimi, Pokemon.jarjestysnumero, Pokemon.tyyppi, Pokemon.edellinenmuoto, Pokemon.seuraavamuoto, KayttajaPokemon.kaappauspvm, KayttajaPokemon.cp, KayttajaPokemon.iv
         //FROM KayttajaPokemon
