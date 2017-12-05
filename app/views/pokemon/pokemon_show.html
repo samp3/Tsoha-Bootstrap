@@ -2,15 +2,19 @@
 {% import "macros/forms.html" as forms %}
 {% block content %}
 <h1>{{pokemon.nimi}}</h1>
-<p>{{message}}</p>
-<!-- Painikkeet tähän -->
+{% if message %}
+<div class="alert alert-success">
+    {{message}}
+</div>
+{% endif %}
+
 <p>
 <form method="post" action="{{base_path}}/pokemon/{{pokemon.id}}/destroy" style="display: inline-block;">
     <button type="submit" class="btn btn-danger">Poista</button>
 </form>
 <a href="{{base_path}}/pokemon/{{pokemon.id}}/edit" class="btn btn-default">Muokkaa</a>
 </p>
-<!-- Tiedot tulee listana tähän -->
+
 <ul>
 
     <li><strong>Nimi:</strong> {{pokemon.nimi}}</li>
@@ -20,7 +24,7 @@
     <li><strong>Seuraava muoto:</strong> {{pokemon.seuraavamuoto}}</li>
 
 </ul>
-<!-- Kuvaus tulee tähän -->
+
 <p>
     <a href="https://bulbapedia.bulbagarden.net/wiki/{{pokemon.nimi}}">Linkki pokemonin kuvaukseen</a>
 </p>
