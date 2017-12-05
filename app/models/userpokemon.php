@@ -48,7 +48,7 @@ class UserPokemon extends BaseModel {
     }
 
     public static function find($id) {
-        $query = DB::connection()->prepare('SELECT * FROM UserPokemon WHERE id = :id LIMIT 1');
+        $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
         $row = $query->fetch();
 
