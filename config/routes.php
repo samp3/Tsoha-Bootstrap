@@ -60,6 +60,10 @@ $routes->post('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
     UserPokemonController::store($kayttaja_nimi);
 });
 
+$routes->get('/userpokemon/:id', function($id) {
+    UserPokemonController::show($id);
+});
+
 //kirjautumis reitit
 $routes->get('/login', function() {
 
