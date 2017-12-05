@@ -27,10 +27,10 @@ class UserPokemon extends BaseModel {
 
             $userpokemons[] = new UserPokemon(array(
                 'nimi' => $pokenimi,
-                'lempinimi' => $rows['lempinimi'],
-                'kaappauspvm' => $rows['kaappauspvm'],
-                'cp' => $rows['cp'],
-                'iv' => $rows['iv']
+                'lempinimi' => $row['lempinimi'],
+                'kaappauspvm' => $row['kaappauspvm'],
+                'cp' => $row['cp'],
+                'iv' => $row['iv']
             ));
         }
         return $userpokemons;
