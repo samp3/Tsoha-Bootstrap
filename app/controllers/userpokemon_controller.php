@@ -11,8 +11,8 @@ class UserPokemonController extends BaseController {
 
     public static function create($user_nimi) {
 
-        $lajit = Pokemon::all();
-        View::make('userpokemon/userpokemon_new.html', array('kayttaja' => $user_nimi, 'lajit' => $lajit));
+        $pokemons = Pokemon::all();
+        View::make('userpokemon/userpokemon_new.html', array('user_nimi' => $user_nimi, 'lajit' => pokemons));
     }
 
     public static function store($kayttaja_nimi) {

@@ -14,7 +14,7 @@
 {% endif %}
 
             
-<form method="post" action="{{base_path}}/userpokemon/{{kayttaja.nimi}}/new">
+<form method="post" action="{{base_path}}/userpokemon/{{user_nimi}}/new">
     <div class="form-group">
         <label>Lempinimi</label>
         <input type="text" name="lempinimi" class="form-control">
@@ -38,8 +38,8 @@
     <div class="form-group">
         <label>Pokémon-laji</label>
         <select class="form-control" name="pokemon_id">
-            {% for laji in lajit %}
-            <option value="{{laji.id}}">{{laji.nimi}}</option>
+            {% for pokemon in pokemons %}
+            <option value="{{pokemon.id}}">{{pokemon.nimi}}</option>
             {% endfor %}
         </select>
     </div>
