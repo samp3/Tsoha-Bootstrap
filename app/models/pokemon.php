@@ -75,8 +75,10 @@ class Pokemon extends BaseModel {
     }
 
     public function destroy() {
-        $query = DB::connection()->prepare('DELETE FROM Pokemon WHERE id = :id');
+        $query = DB::connection()->prepare('DELETE FROM KayttajaPokemon WHERE pokemon_id = :id');
         $query->execute(array('id' => $this->id));
+        $query2 = DB::connection()->prepare('DELETE FROM Pokemon WHERE id = :id');
+        $query2->execute(array('id' => $this->id));
     }
 
     public function validate_pokemon_jarjestys() {

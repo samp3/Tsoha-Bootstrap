@@ -3,8 +3,8 @@
 class PokemonController extends BaseController {
 
     public static function index() {
-            // Haetaan kaikki poket tietokannasta
-        
+        // Haetaan kaikki poket tietokannasta
+
         $pokemons = Pokemon::all();
 
         // Renderöidään 
@@ -12,7 +12,7 @@ class PokemonController extends BaseController {
     }
 
     public static function show($id) {
-        
+
         $pokemon = Pokemon::find($id);
 
 
@@ -20,8 +20,8 @@ class PokemonController extends BaseController {
     }
 
     public static function store() {
-        
-        
+
+
 
 
         $params = $_POST;
@@ -32,7 +32,6 @@ class PokemonController extends BaseController {
             'tyyppi' => $params['tyyppi'],
             'edellinenmuoto' => $params['edellinenmuoto'],
             'seuraavamuoto' => $params['seuraavamuoto'],
-            
         );
         $pokemon = new Pokemon($attributes);
 
@@ -46,19 +45,19 @@ class PokemonController extends BaseController {
     }
 
     public static function create() {
-        
+
         View::make('pokemon/new.html');
     }
 
     public static function edit($id) {
-        
+
 
         $pokemon = Pokemon::find($id);
         View::make('pokemon/edit.html', array('pokemon' => $pokemon));
     }
 
     public static function update($id) {
-        
+
 
 
         $params = $_POST;
@@ -84,7 +83,7 @@ class PokemonController extends BaseController {
     }
 
     public static function destroy($id) {
-        
+
 
         $pokemon = new Pokemon(array('id' => $id));
 
