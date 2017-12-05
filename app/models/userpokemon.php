@@ -35,7 +35,6 @@ class UserPokemon extends BaseModel {
         }
         return $userpokemons;
     }
-    
 
     public function save() {
         // Lisätään RETURNING id tietokantakyselymme loppuun, niin saamme lisätyn rivin id-sarakkeen arvon
@@ -48,5 +47,24 @@ class UserPokemon extends BaseModel {
         $this->id = $row['id'];
     }
 
+    public static function find($id) {
+        $query = DB::connection()->prepare('SELECT * FROM UserPokemon WHERE id = :id LIMIT 1');
+        $query->execute(array('id' => $id));
+        $row = $query->fetch();
+
+        if ($row) {
+            $pokemon = new Pokemon(array(
+                'id' => $row['id'],
+                'pokemon_id' => $row['pokemon_id'],
+                'kayttaja_nimi' => $row['kayttaja_nimi'],
+                'lempinimi' => $row['lempinimi'],
+                'kaappauspvm' => $row['kaappauspvm'],
+                'cp' => $row['cp'],
+                'iv' => $row['iv']
+            ));
+
+            return $pokemon;
+        }
+    }
+
 }
-//$kayttaja_nimi, $pokemon_id, $nimi, $lempinimi, $kaappauspvm, $cp, $iv;
