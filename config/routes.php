@@ -30,15 +30,15 @@ $routes->get('/pokemon/:id', function($id) {
     PokemonController::show($id);
 });
 
-$routes->get('/pokemon/:id/edit', function($id) {
+$routes->get('/pokemon/:id/edit', 'check_logged_in_yllapitaja', function($id) {
     PokemonController::edit($id);
 });
 
-$routes->post('/pokemon/:id/edit', function($id) {
+$routes->post('/pokemon/:id/edit', 'check_logged_in_yllapitaja', function($id) {
     PokemonController::update($id);
 });
 
-$routes->post('/pokemon/:id/destroy', function($id) {
+$routes->post('/pokemon/:id/destroy', 'check_logged_in_yllapitaja', function($id) {
     PokemonController::destroy($id);
 });
 
