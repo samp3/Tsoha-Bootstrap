@@ -10,8 +10,8 @@ class UserPokemonController extends BaseController {
     }
 
     public static function create() {
-        $lajit = Pokemon::all();
-        View::make('userpokemon/new.html', array('lajit' => $lajit));
+
+        View::make('userpokemon/new.html');
     }
 
 }
