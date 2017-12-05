@@ -50,8 +50,13 @@ $routes->get('/pokemon/haku', function() {
 $routes->get('/userpokemon/:kayttaja_nimi', function($kayttaja_nimi) {
     UserPokemonController::showByUser($kayttaja_nimi);
 });
-$routes->get('/userpokemon/new', 'check_logged_in', function() {
-    UserPokemonController::create();
+
+$routes->post('/userpokemon', function() {
+    PokemonController::store();
+});
+
+$routes->get('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
+    UserPokemonController::create($kayttaja_nimi);
 });
 
 
