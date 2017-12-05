@@ -30,7 +30,8 @@ class UserPokemonController extends BaseController {
         );
         $userpokemon = new UserPokemon($attributes);
 
-        $errors = $userpokemon->errors();
+//        $errors = $userpokemon->errors();
+        $errors = 0;
         if (count($errors) == 0) {
             $userpokemon->save();
             Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
