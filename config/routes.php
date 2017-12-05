@@ -51,14 +51,14 @@ $routes->get('/userpokemon/:kayttaja_nimi', function($kayttaja_nimi) {
     UserPokemonController::showByUser($kayttaja_nimi);
 });
 
-$routes->post('/userpokemon', function() {
-    PokemonController::store();
-});
 
 $routes->get('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
     UserPokemonController::create($kayttaja_nimi);
 });
 
+$routes->post('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
+    PokemonController::store($kayttaja_nimi);
+});
 
 //kirjautumis reitit
 $routes->get('/login', function() {
