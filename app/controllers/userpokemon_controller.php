@@ -31,13 +31,18 @@ class UserPokemonController extends BaseController {
         $userpokemon = new UserPokemon($attributes);
 
 //        $errors = $userpokemon->errors();
-        
 //        if (count($errors) == 0) {
-            $userpokemon->save();
-            Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
+        $userpokemon->save();
+        Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
 //        } else {
 //            View::make('userpokemon/' . $kayttaja_nimi . '/new', array('errors' => $errors, 'attributes' => $attributes));
 //        }
+    }
+
+    public static function show($id) {
+        
+        $userpokemon = UserPokemon::find($id);
+        View::make('userpokemon/userpokemon_show.html', array('userpokemon' => $userpokemon));
     }
 
 }

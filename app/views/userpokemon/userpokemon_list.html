@@ -26,8 +26,8 @@
         {% for userpokemon in pokemons %}
 
         <tr>
-            <td><a href="{{base_path}}/pokemon/{{pokemon.id}}">{{userpokemon.nimi}}</td>
-            <td>{{userpokemon.lempinimi}}</td>
+            <td>{{userpokemon.nimi}}</td>
+            <td><a href="{{base_path}}/userpokemon/{{userpokemon.id}}">{{userpokemon.lempinimi}}</td>
             <td>{{userpokemon.kaappauspvm}}</td>
             <td>{{userpokemon.cp}}</td>
             <td>{{userpokemon.iv}}</td> 
