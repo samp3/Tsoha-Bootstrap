@@ -56,8 +56,8 @@ $routes->get('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
     UserPokemonController::create($kayttaja_nimi);
 });
 
-$routes->post('/userpokemon/:kayttaja_nimi', function($kayttaja_nimi) {
-    PokemonController::store($kayttaja_nimi);
+$routes->post('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
+    UserPokemonController::store($kayttaja_nimi);
 });
 
 //kirjautumis reitit
