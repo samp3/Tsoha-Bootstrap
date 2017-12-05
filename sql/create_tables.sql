@@ -19,9 +19,9 @@ CREATE TABLE KayttajaPokemon(
 id SERIAL PRIMARY KEY,
 pokemon_id INTEGER REFERENCES Pokemon(id),
 kayttaja_nimi varchar(50) REFERENCES Kayttaja(nimi),
-lempinimi varchar(50),
-kaappauspvm DATE,
-cp INTEGER,
-iv INTEGER
+lempinimi varchar(50) NOT NULL,
+kaappauspvm DATE NOT NULL,
+cp INTEGER NOT NULL,
+iv INTEGER NOT NULL
 
 );
