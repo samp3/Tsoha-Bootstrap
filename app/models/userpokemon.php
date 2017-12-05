@@ -22,8 +22,8 @@ class UserPokemon extends BaseModel {
             $query2 = DB::connection()->prepare('SELECT nimi FROM Pokemon WHERE id = :pokemon_id');
             $pid = $row['pokemon_id']; //voi olla vääri
             $query2->execute(array('pokemon_id' => $pid));
-            $row = $query2->fetch();
-            $pokenimi = $row['nimi'];
+            $row2 = $query2->fetch();
+            $pokenimi = $row2['nimi'];
 
             $userpokemons[] = new UserPokemon(array(
                 'nimi' => $pokenimi,
