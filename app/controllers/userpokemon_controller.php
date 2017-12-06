@@ -50,7 +50,8 @@ class UserPokemonController extends BaseController {
 
     public static function edit($id) {
         $userpokemon = UserPokemon::find($id);
-        View::make('userpokemon/userpokemon_edit.html', array('userpokemon' => $userpokemon));
+        $pokemons = Pokemon::all();
+        View::make('userpokemon/userpokemon_edit.html', array('userpokemon' => $userpokemon, 'pokemons' => $pokemons));
     }
 
     public static function update($id) {
