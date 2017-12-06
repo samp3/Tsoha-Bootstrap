@@ -73,6 +73,10 @@ $routes->post('/userpokemon/s/:id/edit', function($id) {
     UserPokemonController::update($id);
 });
 
+$routes->post('/userpokemon/s/:id/destroy', function($id) {
+    UserPokemonController::destroy($id);
+});
+
 
 //kirjautumis reitit
 $routes->get('/login', function() {

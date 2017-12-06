@@ -80,4 +80,9 @@ class UserPokemon extends BaseModel {
         $query->execute(array('pokemon_id' => $this->pokemon_id, 'kayttaja_nimi' => $this->kayttaja_nimi, 'lempinimi' => $this->lempinimi, 'kaappauspvm' => $this->kaappauspvm, 'cp' => $this->cp, 'iv' => $this->iv, 'id' => $this->id));
     }
 
+    public function destroy() {
+        $query = DB::connection()->prepare('DELETE FROM KayttajaPokemon WHERE id = :id');
+        $query->execute(array('id' => $this->id));
+    }
+
 }

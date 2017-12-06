@@ -78,4 +78,16 @@ class UserPokemonController extends BaseController {
 //        }
     }
 
+    public static function destroy($id) {
+
+
+        $userpokemon = new UserPokemon(array('id' => $id));
+        $logged = self::get_user_logged_in()->nimi;
+
+        $userpokemon->destroy();
+
+
+        Redirect::to('/userpokemon/' . $logged, array('message' => 'Pokémon on poistettu onnistuneesti!'));
+    }
+
 }
