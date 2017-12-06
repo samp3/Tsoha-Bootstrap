@@ -57,11 +57,11 @@ class UserPokemonController extends BaseController {
     public static function update($id) {
 
         $params = $_POST;
-
+        $kayttaja_nimi = self::get_user_logged_in()->nimi;
         $attributes = array(
             'id' => $id,
             'pokemon_id' => $params['pokemon_id'],
-            'kayttaja_nimi' => $params['kayttaja_nimi'],
+            'kayttaja_nimi' => $kayttaja_nimi,
             'lempinimi' => $params['lempinimi'],
             'kaappauspvm' => $params['kaappauspvm'],
             'cp' => $params['cp'],
