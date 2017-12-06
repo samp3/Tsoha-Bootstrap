@@ -64,6 +64,14 @@ $routes->get('/userpokemon/s/:id', function($id) {
     UserPokemonController::show($id);
 });
 
+$routes->get('/userpokemon/s/:id/edit', function($id) {
+    UserPokemonController::edit($id);
+});
+
+$routes->post('/userpokemon/s/:id/edit', function($id) {
+    UserPokemonController::update($id);
+});
+
 //kirjautumis reitit
 $routes->get('/login', function() {
 

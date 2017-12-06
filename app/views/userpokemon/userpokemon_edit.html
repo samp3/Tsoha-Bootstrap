@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Muokkaa Pokémonia</h1>
+
+{% if errors %}
+<div class="alert alert-danger">
+    <ul>
+        {% for error in errors %}
+        <li>{{error}}</li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+
+<form method="post" action="{{base_path}}/userpokemon/s/{{userpokemon.id}}/edit">
+    <div class="form-group">
+        <label>Lempinimi</label>
+        <input type="text" name="lempinimi" class="form-control">
+        {{userpokemon.lempinimi}}
+    </div>
+
+    <div class="form-group">
+        <label>Kaappauspäivämäärä</label>
+        <input type="date" name="kaappauspvm" class="form-control">
+        {{userpokemon.kaappauspvm}}
+    </div>
+
+    <div class="form-group">
+        <label>CP</label>
+        <input type="text" name="cp" class="form-control">
+        {{userpokemon.cp}}
+    </div>
+
+    <div class="form-group">
+        <label>IV</label>
+        <input type="text" name="iv" class="form-control">
+        {{userpokemon.iv}}
+    </div>
+
+    <div class="form-group">
+        <label>Pokémon-laji</label>
+        <select class="form-control" name="pokemon_id">
+            {% for pokemon in pokemons %}
+            <option value="{{pokemon.id}}">{{pokemon.nimi}}</option>
+            {% endfor %}
+        </select>
+        {{userpokemon.nimi}}
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Tallenna muutokset</button>
+    </div>
+</form>
+
+{% endblock %}

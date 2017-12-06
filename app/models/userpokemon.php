@@ -49,26 +49,6 @@ class UserPokemon extends BaseModel {
     }
 
     public static function find($id) {
-//        $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE id = :id LIMIT 1');
-//        $query->execute(array('id' => $id));
-//        $row = $query->fetch();
-//
-//        if ($row) {
-//            $pokemon = new Pokemon(array(
-//                'id' => $row['id'],
-//                'pokemon_id' => $row['pokemon_id'],
-//                'kayttaja_nimi' => $row['kayttaja_nimi'],
-//                'lempinimi' => $row['lempinimi'],
-//                'kaappauspvm' => $row['kaappauspvm'],
-//                'cp' => $row['cp'],
-//                'iv' => $row['iv']
-//            ));
-//
-//            return $pokemon;
-//        }
-//        return null;
-
-
 
         $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
