@@ -60,7 +60,7 @@ $routes->post('/userpokemon/:kayttaja_nimi/new', function($kayttaja_nimi) {
     UserPokemonController::store($kayttaja_nimi);
 });
 
-$routes->get('/userpokemon/:id', function($id) {
+$routes->get('/userpokemon/s/:id', function($id) {
     UserPokemonController::show($id);
 });
 
