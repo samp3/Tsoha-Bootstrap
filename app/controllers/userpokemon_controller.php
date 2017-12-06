@@ -40,23 +40,41 @@ class UserPokemonController extends BaseController {
     }
 
     public static function show($id) {
-       
+
         self::check_logged_in();
-        
+
         $userpokemon = UserPokemon::find($id);
-        
+
         View::make('userpokemon/userpokemon_show.html', array('userpokemon' => $userpokemon));
     }
-    
 
-    
     public static function edit($id) {
         $userpokemon = UserPokemon::find($id);
         View::make('userpokemon/userpokemon_edit.html', array('userpokemon' => $userpokemon));
     }
-    
+
     public static function update($id) {
-        
+
+        $params = $_POST;
+
+        $attributes = array(
+            'id' => $id,
+            'pokemon_id' => $params['pokemon_id'],
+            'kayttaja_nimi' => $params['kayttaja_nimi'],
+            'lempinimi' => $params['lempinimi'],
+            'kaappauspvm' => $params['kaappauspvm'],
+            'cp' => $params['cp'],
+            'iv' => $params['iv']
+        );
+        $userpokemon = new UserPokemon($attributes);
+//        $errors = $userpokemon->errors();
+//        if (count($errors) > 0) {
+//            View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'attributes' => $attributes));
+//        } else {
+
+        $userpokemon->update();
+        Redirect::to('/userpokemon/s/' . $userpokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
+//        }
     }
 
 }

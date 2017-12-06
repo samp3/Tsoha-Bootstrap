@@ -46,6 +46,7 @@ $routes->get('/pokemon/haku', function() {
     HelloWorldController::pokemon_haku();
 });
 
+
 //userpokemon reitit
 $routes->get('/userpokemon/:kayttaja_nimi', function($kayttaja_nimi) {
     UserPokemonController::showByUser($kayttaja_nimi);
@@ -71,6 +72,7 @@ $routes->get('/userpokemon/s/:id/edit', function($id) {
 $routes->post('/userpokemon/s/:id/edit', function($id) {
     UserPokemonController::update($id);
 });
+
 
 //kirjautumis reitit
 $routes->get('/login', function() {

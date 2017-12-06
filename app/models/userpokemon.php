@@ -75,4 +75,9 @@ class UserPokemon extends BaseModel {
         return $userpokemon;
     }
 
+    public static function update() {
+        $query = DB::connection()->prepare('UPDATE UserPokemon SET pokemon_id = :pokemon_id, kayttaja_nimi = :kayttaja_nimi, lempinimi = :lempinimi, kaappauspvm = :kaappauspvm, cp = :cp, iv = :iv WHERE id = :id');
+        $query->execute(array('pokemon_id' => $this->pokemon_id, 'kayttaja_nimi' => $this->kayttaja_nimi, 'lempinimi' => $this->lempinimi, 'kaappauspvm' => $this->kaappauspvm, 'cp' => $this->cp, 'iv' => $this->iv, 'id' => $this->id));
+    }
+
 }
