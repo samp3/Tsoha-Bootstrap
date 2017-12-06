@@ -20,7 +20,7 @@ class UserPokemon extends BaseModel {
 
         foreach ($rows as $row) {
             $query2 = DB::connection()->prepare('SELECT nimi FROM Pokemon WHERE id = :pokemon_id');
-            $pid = $row['pokemon_id']; //voi olla vääri
+            $pid = $row['pokemon_id'];
             $query2->execute(array('pokemon_id' => $pid));
             $row2 = $query2->fetch();
             $pokenimi = $row2['nimi'];
@@ -49,24 +49,50 @@ class UserPokemon extends BaseModel {
     }
 
     public static function find($id) {
+//        $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE id = :id LIMIT 1');
+//        $query->execute(array('id' => $id));
+//        $row = $query->fetch();
+//
+//        if ($row) {
+//            $pokemon = new Pokemon(array(
+//                'id' => $row['id'],
+//                'pokemon_id' => $row['pokemon_id'],
+//                'kayttaja_nimi' => $row['kayttaja_nimi'],
+//                'lempinimi' => $row['lempinimi'],
+//                'kaappauspvm' => $row['kaappauspvm'],
+//                'cp' => $row['cp'],
+//                'iv' => $row['iv']
+//            ));
+//
+//            return $pokemon;
+//        }
+//        return null;
+
+
+
         $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE id = :id LIMIT 1');
         $query->execute(array('id' => $id));
+
         $row = $query->fetch();
 
+
         if ($row) {
-            $pokemon = new Pokemon(array(
+            $query2 = DB::connection()->prepare('SELECT nimi FROM Pokemon WHERE id = :pokemon_id');
+            $pid = $row['pokemon_id'];
+            $query2->execute(array('pokemon_id' => $pid));
+            $row2 = $query2->fetch();
+            $pokenimi = $row2['nimi'];
+
+            $userpokemon = new UserPokemon(array(
                 'id' => $row['id'],
-                'pokemon_id' => $row['pokemon_id'],
-                'kayttaja_nimi' => $row['kayttaja_nimi'],
+                'nimi' => $pokenimi,
                 'lempinimi' => $row['lempinimi'],
                 'kaappauspvm' => $row['kaappauspvm'],
                 'cp' => $row['cp'],
                 'iv' => $row['iv']
             ));
-
-            return $pokemon;
         }
-        return null;
+        return $userpokemon;
     }
 
 }
