@@ -10,8 +10,10 @@
 <h1>{{userpokemon.lempinimi}} ({{userpokemon.nimi}})</h1>
 
 <p>
-    <a href="{{base_path}}/userpokemon/{{userpokemon.id}}/destroy" class="btn btn-danger">Poista</a>
-    <a href="{{base_path}}/userpokemon/{{userpokemon.id}}/edit" class="btn btn-default">Muokkaa</a>
+<th><form method="post" action="{{base_path}}/userpokemon/s/{{userpokemon.id}}/destroy" style="display: inline-block;">
+        <button type="submit" class="btn btn-danger">Poista</button>
+    </form></th>
+<th><a class="btn btn-default btn-sm" href="{{base_path}}/userpokemon/s/{{userpokemon.id}}/edit">Muokkaa</a></th>
 </p>
 
 <ul>
