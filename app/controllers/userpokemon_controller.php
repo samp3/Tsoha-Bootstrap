@@ -71,7 +71,9 @@ class UserPokemonController extends BaseController {
         $userpokemon = new UserPokemon($attributes);
         $errors = $userpokemon->errors();
         if (count($errors) > 0) {
-            View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'attributes' => $attributes));
+            $userpokemon = UserPokemon::find($id);
+            $pokemons = Pokemon::all();
+            View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'userpokemon' => $userpokemon, 'pokemons' => $pokemons));
         } else {
 
             $userpokemon->update();
