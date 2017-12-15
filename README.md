@@ -14,6 +14,7 @@
 Ylläpitäjän oikeuksilla:
 * Käyttäjätunnus: ylla
 * Salasana: pitaja
+
 Tavallisen käyttäjän oikeuksilla:
 * Käyttäjätunnus: sampe
 * Salasana: sampe
