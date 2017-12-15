@@ -8,7 +8,7 @@ class UserPokemon extends BaseModel {
     public function __construct($attributes) {
 
         parent::__construct($attributes);
-        $this->validators = array('validate_lempinimi', 'validate_cp', 'validate_iv');
+        $this->validators = array('validate_lempinimi', 'validate_cp', 'validate_iv', 'validate_kaappauspvm');
     }
 
     public static function findByUser($kayttaja_nimi) {
@@ -126,7 +126,7 @@ class UserPokemon extends BaseModel {
     
     public function validate_kaappauspvm() {
         $errors = array();
-        if ($this->kaappauspvm == "" || $this->kaappauspvm == null) {
+        if ($this->kaappauspvm == '' || $this->kaappauspvm == null) {
             $errors[] = 'kaappauspäivämäärä ei saa olla tyhjä!';
         }
        
