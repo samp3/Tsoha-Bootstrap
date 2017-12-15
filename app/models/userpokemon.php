@@ -103,7 +103,7 @@ class UserPokemon extends BaseModel {
     public function validate_CP() {
         $errors = array();
         if ($this->iv == '' || $this->iv == null) {
-            $errors[] = 'IV ei saa olla tyhjä! IV kertoo kuinka laadukas yksilösi on, 0 huonoin, 100 paras.';
+            $errors[] = 'IV ei saa olla tyhjä!';
         }
         if ($this->iv <0 || $this->iv >100) {
             $errors[] = 'IV pitää olla välilta 0 ja 100!. IV kertoo kuinka laadukas yksilösi on, 0 huonoin, 100 paras.';
@@ -115,7 +115,7 @@ class UserPokemon extends BaseModel {
     public function validate_iv() {
         $errors = array();
         if ($this->cp == '' || $this->cp == null) {
-            $errors[] = 'CP ei saa olla tyhjä! CP kertoo kuinka vahva Pokemonisi on.';
+            $errors[] = 'CP ei saa olla tyhjä!';
         }
         if ($this->cp <1 || $this->cp >3982) {
             $errors[] = 'CP pitää olla välilta 1 ja 3982! CP kertoo kuinka vahva Pokemonisi on.';
