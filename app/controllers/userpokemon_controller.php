@@ -56,13 +56,11 @@ class UserPokemonController extends BaseController {
     }
 
     public static function update($id) {
-
         $params = $_POST;
-        $kayttaja_nimi = self::get_user_logged_in()->nimi;
         $attributes = array(
             'id' => $id,
             'pokemon_id' => $params['pokemon_id'],
-            'kayttaja_nimi' => $kayttaja_nimi,
+            'kayttaja_nimi' => self::get_user_logged_in()->nimi,
             'lempinimi' => $params['lempinimi'],
             'kaappauspvm' => $params['kaappauspvm'],
             'cp' => $params['cp'],
@@ -75,7 +73,6 @@ class UserPokemonController extends BaseController {
             $pokemons = Pokemon::all();
             View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'userpokemon' => $userpokemon, 'pokemons' => $pokemons));
         } else {
-
             $userpokemon->update();
             Redirect::to('/userpokemon/s/' . $userpokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
         }
