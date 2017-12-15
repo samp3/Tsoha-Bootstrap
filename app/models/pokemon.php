@@ -13,7 +13,7 @@ class Pokemon extends BaseModel {
 
     public static function all() {
         // Alustetaan kysely tietokantayhteydellämme
-        $query = DB::connection()->prepare('SELECT * FROM Pokemon SORT BY jarjestysnumero');
+        $query = DB::connection()->prepare('SELECT * FROM Pokemon ORDER BY jarjestysnumero');
         // Suoritetaan kysely
         $query->execute();
         // Haetaan kyselyn tuottamat rivit
