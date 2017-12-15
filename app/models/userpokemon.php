@@ -100,7 +100,7 @@ class UserPokemon extends BaseModel {
         return $errors;
     }
     
-    public function validate_CP() {
+    public function validate_iv() {
         $errors = array();
         if ($this->iv == '' || $this->iv == null) {
             $errors[] = 'IV ei saa olla tyhjä!';
@@ -112,7 +112,7 @@ class UserPokemon extends BaseModel {
         return $errors;
     }
     
-    public function validate_iv() {
+    public function validate_cp() {
         $errors = array();
         if ($this->cp == '' || $this->cp == null) {
             $errors[] = 'CP ei saa olla tyhjä!';
