@@ -30,13 +30,13 @@ class UserPokemonController extends BaseController {
         );
         $userpokemon = new UserPokemon($attributes);
 
-//        $errors = $userpokemon->errors();
-//        if (count($errors) == 0) {
+        $errors = $userpokemon->errors();
+        if (count($errors) == 0) {
         $userpokemon->save();
         Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
-//        } else {
-//            View::make('userpokemon/' . $kayttaja_nimi . '/new', array('errors' => $errors, 'attributes' => $attributes));
-//        }
+        } else {
+            View::make('userpokemon/' . $kayttaja_nimi . '/new', array('errors' => $errors, 'attributes' => $attributes));
+        }
     }
 
     public static function show($id) {
@@ -68,14 +68,14 @@ class UserPokemonController extends BaseController {
             'iv' => $params['iv']
         );
         $userpokemon = new UserPokemon($attributes);
-//        $errors = $userpokemon->errors();
-//        if (count($errors) > 0) {
-//            View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'attributes' => $attributes));
-//        } else {
+        $errors = $userpokemon->errors();
+        if (count($errors) > 0) {
+            View::make('userpokemon/userpokemon_edit.html', array('errors' => $errors, 'attributes' => $attributes));
+        } else {
 
-        $userpokemon->update();
+            $userpokemon->update();
         Redirect::to('/userpokemon/s/' . $userpokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
-//        }
+        }
     }
 
     public static function destroy($id) {

@@ -8,6 +8,7 @@ class UserPokemon extends BaseModel {
     public function __construct($attributes) {
 
         parent::__construct($attributes);
+        $this->validators = array('validate_lempinimi', 'validate_cp', 'validate_iv');
     }
 
     public static function findByUser($kayttaja_nimi) {
@@ -84,5 +85,45 @@ class UserPokemon extends BaseModel {
         $query = DB::connection()->prepare('DELETE FROM KayttajaPokemon WHERE id = :id');
         $query->execute(array('id' => $this->id));
     }
+    
+    //validators
+    
+    public function validate_lempinimi() {
+        $errors = array();
+        if ($this->lempinimi == '' || $this->lempinimi == null) {
+            $errors[] = 'lempinimi ei saa olla tyhjä!';
+        }
+        if (strlen($this->lempinimi) < 3) {
+            $errors[] = 'lempinimen pituuden tulee olla vähintään 3 merkkiä!';
+        }
+
+        return $errors;
+    }
+    
+    public function validate_CP() {
+        $errors = array();
+        if ($this->iv == '' || $this->iv == null) {
+            $errors[] = 'IV ei saa olla tyhjä! IV kertoo kuinka laadukas yksilösi on, 0 huonoin, 100 paras.';
+        }
+        if ($this->iv <0 || $this->iv >100) {
+            $errors[] = 'IV pitää olla välilta 0 ja 100!. IV kertoo kuinka laadukas yksilösi on, 0 huonoin, 100 paras.';
+        }
+
+        return $errors;
+    }
+    
+    public function validate_iv() {
+        $errors = array();
+        if ($this->cp == '' || $this->cp == null) {
+            $errors[] = 'CP ei saa olla tyhjä! CP kertoo kuinka vahva Pokemonisi on.';
+        }
+        if ($this->cp <1 || $this->cp >3982) {
+            $errors[] = 'CP pitää olla välilta 1 ja 3982! CP kertoo kuinka vahva Pokemonisi on.';
+        }
+
+        return $errors;
+    }
+    
+    
 
 }
