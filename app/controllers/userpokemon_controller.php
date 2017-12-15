@@ -32,8 +32,8 @@ class UserPokemonController extends BaseController {
 
         $errors = $userpokemon->errors();
         if (count($errors) == 0) {
-        $userpokemon->save();
-        Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
+            $userpokemon->save();
+            Redirect::to('/userpokemon/' . $kayttaja_nimi, array('message' => 'Pokemon on lisätty kirjastoosi!'));
         } else {
             $pokemons = Pokemon::all();
             View::make('userpokemon/userpokemon_new.html', array('errors' => $errors, 'attributes' => $attributes, 'user' => $kayttaja_nimi, 'pokemons' => $pokemons));
@@ -75,7 +75,7 @@ class UserPokemonController extends BaseController {
         } else {
 
             $userpokemon->update();
-        Redirect::to('/userpokemon/s/' . $userpokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
+            Redirect::to('/userpokemon/s/' . $userpokemon->id, array('message' => 'Pokémonia on muokattu onnistuneesti!'));
         }
     }
 

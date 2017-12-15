@@ -124,6 +124,16 @@ class UserPokemon extends BaseModel {
         return $errors;
     }
     
+    public function validate_kaappauspvm() {
+        $errors = array();
+        if ($this->kaappauspvm == '' || $this->kaappauspvm == null) {
+            $errors[] = 'kaappauspäivämäärä ei saa olla tyhjä!';
+        }
+       
+
+        return $errors;
+    }
+    
     
 
 }
