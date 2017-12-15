@@ -91,7 +91,10 @@ $routes->post('/login', function() {
 $routes->post('/logout', function() {
     UserController::logout();
 });
-
+//rekisteröityminen
 $routes->get('/register', function() {
     UserController::newUser();
+});
+$routes->post('/register', function() {
+    UserController::store();
 });

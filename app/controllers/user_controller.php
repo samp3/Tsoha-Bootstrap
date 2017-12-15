@@ -19,14 +19,31 @@ class UserController extends BaseController {
             Redirect::to('/', array('message' => 'Tervetuloa takaisin ' . $user->nimi . '!'));
         }
     }
-    
-    public static function logout(){
-    $_SESSION['user'] = null;
-    Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
-  }
-  
-  public static function newUser() {
+
+    public static function logout() {
+        $_SESSION['user'] = null;
+        Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
+    }
+
+    //rekisteröityminen
+    public static function newUser() {
         View::make('user/new.html');
+    }
+
+    public static function store() {
+        $params = $_POST;
+        $attributes = array(
+            'nimi' => $params['nimi'],
+            'salasana' => $params['salasana']
+        );
+        $user = new User($attributes);
+        $errors = $user->errors();
+        if (count($errors) == 0) {
+            $user->save();
+            Redirect::to('/login', array('message' => 'Rekisteröityminen onnistui! Voit nyt kirjautua sisään'));
+        } else {
+            View::make('user/new.html', array('errors' => $errors));
+        }
     }
 
 }

@@ -12,7 +12,7 @@
     </ul>
 </div>
 {% endif %}
-<form method="post" action="{{base_path}}/user">
+<form method="post" action="{{base_path}}/register">
     <div class="form-group">
         <label>Käyttäjätunnus (max 50 merkkiä)</label>
         <input type="text" name="nimi" class="form-control" value="{{attributes.nimi}}">
@@ -22,7 +22,7 @@
         <input type="password" name="salasana" class="form-control">
     </div>
     <div class="form-group">
-        <button type="submit" class="btn btn-primary">Register</button>
+        <button type="submit" class="btn btn-primary">Rekisteröidy!</button>
     </div>
 </form>
 {% endblock %}
