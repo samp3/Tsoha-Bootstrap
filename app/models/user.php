@@ -7,7 +7,23 @@ class User extends BaseModel {
     public function __construct($attributes) {
 
         parent::__construct($attributes);
+        $this->validators = ['tarkista_salasana', 'tarkista_nimi', 'onko_samanniminen_olemassa'];
     }
+    
+    //validators
+    
+    public function tarkista_nimi() {
+        return BaseModel::validate_string_maxlength($this->nimi, 1, 50);
+    }
+    
+    public function tarkista_salasana() {
+        return BaseModel::validate_string_maxlength($this->salasana, 1, 50);
+    }
+
+    public function onko_samanniminen_olemassa() {
+        return BaseModel::validate_same_name('Kayttaja', 'nimi', $this->nimi);
+    }
+    //end validators
 
     public static function find($nimi) {
         $query = DB::connection()->prepare('SELECT * FROM Kayttaja WHERE nimi = :nimi LIMIT 1');
@@ -41,6 +57,16 @@ class User extends BaseModel {
         } else {
             return null;
         }
+    }
+
+    // Uuden tunnuksen rekisteröityminen
+    public function save() {
+        $query = DB::connection()->prepare('INSERT INTO Kayttaja (nimi, salasana) '
+                . 'VALUES (:nimi, :salasana)');
+        $query->execute(array(
+            'nimi' => $this->nimi,
+            'salasana' => $this->salasana
+        ));
     }
 
 }

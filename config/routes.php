@@ -91,3 +91,7 @@ $routes->post('/login', function() {
 $routes->post('/logout', function() {
     UserController::logout();
 });
+
+$routes->get('/register', function() {
+    UserController::newUser();
+});

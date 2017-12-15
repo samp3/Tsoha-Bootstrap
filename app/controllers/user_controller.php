@@ -24,5 +24,9 @@ class UserController extends BaseController {
     $_SESSION['user'] = null;
     Redirect::to('/login', array('message' => 'Olet kirjautunut ulos!'));
   }
+  
+  public static function newUser() {
+        View::make('user/new.html');
+    }
 
 }
