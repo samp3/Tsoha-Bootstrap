@@ -13,7 +13,7 @@ class UserPokemon extends BaseModel {
 
     public static function findByUser($kayttaja_nimi) {
 
-        $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE kayttaja_nimi = :kayttaja_nimi');
+        $query = DB::connection()->prepare('SELECT * FROM KayttajaPokemon WHERE kayttaja_nimi = :kayttaja_nimi ORDER BY cp DESC');
         $query->execute(array('kayttaja_nimi' => $kayttaja_nimi));
 
         $rows = $query->fetchAll();
