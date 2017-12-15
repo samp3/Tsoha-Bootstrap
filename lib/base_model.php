@@ -21,8 +21,8 @@ class BaseModel {
         $errors = array();
 
         foreach ($this->validators as $validator) {
-            
-            
+
+
             $validatorlista = $this->{$validator}();
 
             $errors = array_merge($errors, $validatorlista);
@@ -43,7 +43,7 @@ class BaseModel {
 //
 //        return $errors;
 //    }
-    
+
     public function validate_string_maxlength($string, $minlen, $maxlen) {
         $errors = array();
         if ($string == "" || $string == null) {
@@ -59,7 +59,7 @@ class BaseModel {
         }
         return $errors;
     }
-    
+
     public function validate_same_name($dbname, $dbcol, $objectname) {
         $queryString = 'SELECT * FROM ' . $dbname . ' WHERE ' . $dbcol . ' = :objectname' . ' LIMIT 1';
         $errors = array();
@@ -69,7 +69,7 @@ class BaseModel {
         ));
         $row = $query->fetch();
         if ($row) {
-            $errors[] = "Tietokannassa on jo käytössä tunnus " . $objectname . "! Keksi uusi tunnus. Jo käytössä olevat tunnukset näet listaussivulta.";
+            $errors[] = "Tietokannassa on jo käytössä tunnus " . $objectname . "! Keksi uusi tunnus.";
         }
         return $errors;
     }
